@@ -1,0 +1,230 @@
+*{
+    margin: 0px;
+    padding: 0px;    
+    box-sizing: border-box;
+   
+  }
+  
+html { scroll-behavior: smooth; }
+ 
+  @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Fira+Mono:wght@500&display=swap");
+
+/*.body1{
+    color:#e0e0e0;
+    background-color:#540b0e ;
+    /*font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: "Fira Mono", monospace;
+    font-size: medium;   
+}*/
+
+body {
+    /*font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;*/
+    background-color: #540b0e;
+    font-family: "Fira Mono", monospace;
+    box-sizing: border-box;
+    color:#eeeeee;
+
+}
+
+.header{
+    /*background:#540b0e;*/
+    color:#e0e0e0;
+    /*left: 0;
+    top:0;*/
+    width: 100%; 
+    height:fit-content;
+    margin-bottom: 8px;  
+    /*z-index: 10;*/
+    /*height: 100px;*/
+    
+    /*position:fixed*/
+    
+}
+.logo-nav-container{
+    box-sizing: border-box;
+    display:flex;  
+    flex-wrap:wrap;
+    color:#e0e0e0;
+    width: 100%;
+    height: 100%;
+    justify-content:space-between;  
+   /* background-color: #FCA311;*/
+}
+div.bienvenido{
+    margin-top:1.5rem;
+    margin-left:1rem;
+    text-align: center;
+}
+
+.Faustine{
+    display: flex;
+    font-family: "Permanent Maker";
+    font-size: 2rem;     
+}
+.Faustine h3{
+    font-family: "Permanent Marker";
+    color:#9e9e9e;
+    
+}
+.logoF{
+    width: 5rem;
+    height:5rem;
+    color:#e0e0e0;     
+}
+/*.imgs button{
+    transition: border-radius 450ms;
+    /*border-style:double;*/ 
+div.imgs{    
+    flex-wrap: nowrap;
+    display: flex;
+    font-size: large;
+    height:4rem;
+    justify-content: space-between;
+    margin-right: 1rem;
+    margin-top: 16px;
+    color:#eeeeee;
+    padding:0.5rem 0.5rem 0.5rem 0.5rem;
+
+}
+div.imgs i, div.imgs img , div.imgs p, div.imgs a{
+    color:#eeeeee;
+    width:2.5rem ;
+    height:2.5rrem;
+    font-weight: 4rem;
+    padding:4px 4px 4px 4px;
+    font-size: 2rem;
+}
+
+#noSeVe{
+    display:none;
+}
+
+
+#errorMsge{
+    color:red;
+}
+
+
+
+/**** barra de búsqueda ***/
+
+.search-bar form{
+width: 100%;
+height: 5rem;
+margin: 3rem 2rem 0rem 3rem;
+} 
+
+.search-bar input{
+    width: 25rem;
+    height: 8rem; 
+    color:#540b0e;
+    font-weight:bolder;
+    border-radius: 2px;
+    background-color:#eeeeee;  
+    margin: 2rem 0.3rem 1rem 2rem;       
+}
+.selectBuscaBarra {
+    width: 22rem;
+    height: 2rem;
+    color:#540b0e;
+    border-radius:8px;
+    background-color:#eeeeee;
+    margin: 2rem 0.3rem 1rem 2rem; 
+}
+#botonSearch{
+    width: 3rem;
+    height: 2rem;
+    background-color:#eeeeee;
+    border-radius: 25px;
+}
+#saleLogo{
+    width: 5rem;
+    height: 5rem;
+    
+}
+#cierroSesion{
+    width:2rem;
+    height: 2rem;
+    color:#e0e0e0;
+
+}
+
+/*********/
+
+.footerFaustine{
+    background-color: #540b0e;
+    color: #9e9e9e;
+    width: 100%;
+    height: fit-content;
+    
+}
+.footerLogoFaustine{
+    width: 7rem;
+    height: 7rem;
+}
+.footerfaustine{
+    justify-content:space-around;
+    display:flex;
+    align-items: center;
+    width: 100%;
+    font-size: 15pt;
+    height: 100%;
+}
+
+.footerfaustine li{
+    list-style: none;
+}
+div.redes{
+    justify-content: center;
+    padding:5px;
+    
+}
+.redes img{
+    padding: 3px;
+}
+.logoMedias{
+    width: 8rem;
+    height: 4rem;
+}
+
+
+.redes p{
+    text-align: center;
+    font-size: 10pt;
+}
+
+/*.lista1 li{
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}*/
+
+.lista1 a{
+    text-decoration: none;
+    color: #e0e0e0;
+    font-size: 14 px;
+}
+
+
+@media (max-width:361px){
+    .faustine{
+        font-size: 1.5rem;
+    }
+    .header{
+        background-color:#14213D;
+    }
+    .search-bar input{       
+        margin: 2rem 0.3rem 1rem 0.5rem; 
+        width: 8.2rem;      
+    }
+}
+@media (min-width:500px){
+    .faustine h3{
+        font-size: 5rem;
+    }
+}
+@media (max-width:400px){
+    .imgs i , .imgs img{         
+        padding:0.5rem 0.1rem 0.5rem 0.1rem;
+    }
+}

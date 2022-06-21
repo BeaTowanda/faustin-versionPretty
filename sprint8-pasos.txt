@@ -1,0 +1,9 @@
+- falta el sprint 7 
+
+- sprint 8 :
+1) a partir de un proyecto hecho generar el propio
+2) analizar cada componente y sus respectivos end-points
+3) falta ver como displaya usuarios
+
+    
+    

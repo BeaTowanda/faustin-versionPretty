@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        
+        <link rel="stylesheet" href="/stylesheets/home.css">
+        <link rel="stylesheet" href="/stylesheets/global.css">
+        <link rel="stylesheet" href="/stylesheets/barraScile.css">
+        <link rel="stylesheet" href="/stylesheets/modalFooter.css">
+        <link rel="stylesheet" href="/stylesheets/login.css">
+        <link rel="stylesheet" href="/stylesheets/cards.css">
+      <!--  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet" />
+        <!--<script src="https://kit.fontawesome.com/812a77d5cc.js" crossorigin="anonymous"></script>-->
+        <link rel="https://fontawesome.com/">
+        <title>Faustine</title>
+        <!--<link rel="stylesheet" href="/stylesheets/style.css"-->
+    </head>
+ 
+    <body>
+        <%- include('partials/header') %>
+
+    <main>
+      
+    <div class="slider">
+	    <div class="slide-track">
+         <% for (i=indiceSlice ; i< finalSlice ; i++) { %>
+		    <div class="slide">
+           <a href="/bproduct/detalle/<%= producto[i].id %>"><img id= "imgBarra" src="images/<%= producto[i].image_ppal %>"></a>
+			<!--<img id="imgBarra" src="images/gucci.1.SinFondo.png" height="100" width="250" alt="" >-->
+            <!--<img id="imgBarra" src="images/gucci.1.SinFondo.png">-->
+		    </div>
+        <% } %>
+
+	    </div>
+    </div>
+    <div class="barraBusqueda">
+        <form action="/bproduct/buscarPorBarra" method="GET">
+                <select name ="busca"  class="selectBuscaBarra">
+                <option value="">QUE ESTAS BUSCANDO ? </option>
+                <option value="all ">Todos los productos </option>
+                <option value="O ">OFERTAS de la SEMANA </option>
+                <% for (i=0 ; i < anios.length ; i++) { %>
+                <option  value = "Y <%= anios[i].id %>">AÑO:<%= anios[i].year_name %> </option>
+                <% } %> 
+               <% for (i=0 ; i < colecciones.length ; i++) { %>
+               <option value = "C <%= colecciones[i].id %>">COLECCION:<%= colecciones[i].colection_name %></option>
+               <% } %> 
+              
+               <% for (i=0 ; i < tipos.length ; i++) { %>
+               <option value = "T <%= tipos[i].id %>"> TIPO :<%=tipos[i].type_name %></option>
+               <% } %>
+               
+                       
+                </select>
+                <button id="botonSearch" value="busca" type="submit" aria-placeholder="fa fa-search"><i class="fa fa-search"></i></button>
+ 
+    </div>
+
+            <section class="productos"> 
+                    <div class="producto">
+                        <p class="novedades">NOVEDADES</p>                      
+                        <div class="container">
+                            <% for (i=indiceHome ;i< finalHome;i++) { %>
+                            <div class="cards" >
+                               
+                                <div class="card zenitsu" style =" background-image:url('/images/<%= producto[i].image_ppal %>' );
+                                    background-position: center;  background-repeat: no-repeat;background-size: cover;">
+                                        <div class="colour"></div>
+                                        <div class="card-text">
+                                            <h3><a href="/bproduct/detalle/<%= producto[i].id %>"><span style="color:#540b0e"><%= producto[i].name %></span></a></h3>
+                                           
+                                            <p><a href="/bproduct/listarProdType/<%= producto[i].pType.id %>"><span> <%= producto[i].pType.type_name %> </spam></a></b></p>
+                                        </div>
+                                        <div class="colour-bottom"></div>
+                                </div>
+                            </div>
+                            <% } %>
+                        </div>
+                    </div>
+    
+            </section>
+            <section>
+                <div class="iconos">
+ 
+                    <i id="distribucion" class="fas fa-truck-moving" size="1rem" ></i>
+                    <i id="distribucion" class="fas fa-credit-card"></i>
+                    <i id="distribucion" class="fas fa-money-bill-wave"></i>
+ 
+                </div>
+                <div class="modo-pago">
+                    <a href="#" class="retail">Envios a todo el país</a>          
+                    <p>Pago en cuotas</p>
+                    <p>Pago por transferencia</p>
+                </div>                
+                 
+            </section> 
+            <section class="modalFooter ">
+                <div class="modalFooter__container">
+                    <!--<img src="images/modal.svg" class="modal__img"> -->
+                    <h2 class="modalFooter__title">¡Optimice sus Costos ¡</h2>
+                    <p class="modalFooter__paragraph"> Instrumentamos un sistema de distribución a fin de mejorar sus costos: DISTRIBUCIÓN STANDARD al mejor precio de Mercado, para lo cual solo deberá organizarse con los tiempos. NO OLVIDE CONSULTAR precios y tiempos a la hora de realizar el pedido. </p>
+                    <a href="#" class="modalFooter__close">Cerrar Modal</a>
+                </div>
+            </section>                    
+    </main>
+         
+     <footer>
+        <%- include('partials/footer') %>
+    <script src="js/retail.js"></script>   
+    <script src="js/letter.js"></script>
+    </footer> 
+    </body>
+    
+</html>

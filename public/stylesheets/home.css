@@ -1,0 +1,213 @@
+*{
+    margin: 0px;
+    padding: 0px;    
+    box-sizing: border-box;
+  }
+ 
+
+
+/*.body1{
+   
+    background-color:#FFFAF0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: medium;   
+}    */
+
+.productos{        
+    flex-wrap: wrap;  
+    display: flex;
+    margin:1rem 1rem 1rem 1rem;
+    /*flex-direction: column;*/  
+    justify-content:space-between;
+    border-block-color: grey;
+        /*align-self: stretch;*/
+}
+.productos h3{
+    font-size: 1.5rem;
+    color:black;
+}
+.productos h3 i{
+    color:black;
+    font-size: 1.2rem;
+}
+
+.productos img{
+    width: 18rem;
+    height: 12rem;
+}
+
+.derecha{
+    background-color: aquamarine;
+    margin-top: 2rem;
+    width:60% ;
+    /*height: 50%; */
+    height: 30%;  
+    /*box-shadow: 0px 0px 10px rgb(100, 100, 100);*/
+    display: flex;
+    flex-direction: row;
+   
+}
+div.producto {  
+     margin:0.1rem 0.1rem 0.1rem 0.1rem;
+}
+/* agrego para el listado de la barra de búsqueda */
+#buscaH3 {
+    color:#424242;
+    font-weight: bolder;
+    font-size: x-large;
+}
+
+/*.izquierda{
+    width: 50%;
+    height: 50%;
+    background-color: chartreuse;
+    display: flex;
+    flex-direction: column;  
+}*/
+.bolsos1, .carteras1, .bandoleras1, .mochilas1 {
+    /*width: 950px;
+    height: 600px;*/
+    /*background-color: #e6d8cc;    */
+    /*width:5rem;
+    height: 5rem;*/
+    /*box-shadow: 0px 0px 10px rgb(100, 100, 100);*/
+    border-radius: 5%;
+    position:left;
+}
+/*#bandoleraCereza {
+    width:16rem;
+    height: 12rem;
+}*/
+/*iv.cajaGrande{
+  
+    width: 50%;
+    height: 21rem;
+    margin: 1rem 1rem 0rem 1rem;   
+}*/
+/******************************************/
+div.cajaGrande{
+  
+    /*aquí modifiqué a 21 rem*/
+    width: 18rem;
+    height: 21rem;
+    margin: 1rem 1rem 1rem 1rem;   
+}
+div.cajaGrande img{
+    width: 14rem;
+    height: 12rem;
+    padding:10px;
+}
+/*creo otra caja para la imagen de los dos primeros que sale mal*/
+div.cajaGrandeA{
+   
+    /*aquí modifiqué a 21 rem*/
+    width: 18rem;
+    height: 21rem;
+    margin: 1rem 1rem 1rem 1rem;   
+}
+div.cajaGrandeA img{
+    width: 18rem;
+    height: 12rem;
+    padding:9px;
+}
+#zoom{
+    transition: transform 1s; 
+}
+#zoom:hover{
+    transform: scale(1.81);
+}
+/*++++++++++++++++++++++++++++++++++++*/
+div.cajaDetalle{
+   /* flex-wrap: wrap;
+    justify-content: space-between;*/
+    margin-left:0.7 rem;
+    color:black;
+    font-size: 1rem;
+    /*padding: 0.5rem 0.5rem 0.5rem 1rem;*/
+}
+div.cajaDetalle h4{
+    font-weight: bold;
+}
+div.cajaDetalle #oferta{
+    color:#bfa294;
+    font-weight: bold;
+}
+
+
+.bolsos1:hover {
+    transform: scale(0.9); 
+    opacity: 70%;    
+} 
+
+
+.iconos{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+   
+    font-size: medium;
+    box-sizing: content-box;
+    font-size: 30px;
+    margin-top: 40px;
+}
+#distribucion{
+    -webkit-animation:spin 10s linear infinite;
+     -moz-animation:spin 7s linear infinite;
+     animation:spin2 7s linear infinite;
+}
+@-moz-keyframes spin2 { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin2 { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin2 { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.modo-pago{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-sizing: content-box;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 15px;
+
+}
+#imagenFolk{
+    width: 10rem;
+    height: 9.5em;
+}
+@media (max-width: 769px){
+    footer{
+      display:none;
+    };
+}
+@media (max-width: 700px) {
+    .bolsos1,.carteras1, .bandoleras1 ,.mochilas1{
+        background-color: #FFFAF0;
+        /*box-shadow: 0px 0px 10px rgb(100, 100, 100);*/
+        box-shadow: none;
+    };
+    
+    .productos h3{
+        font-size: 1rem;
+    } ;
+    div .cajaGrande{
+        font-size: 0.5rem;
+
+    };
+}
+@media (max-width: 730px){
+    .productos{
+        flex-direction: column;
+    }
+    div .producto {
+        box-shadow: none;
+    }
+}
+@media (max-width: 361px){
+    #titulo {
+        display:none;
+    }
+}

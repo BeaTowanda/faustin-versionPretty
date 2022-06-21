@@ -1,0 +1,40 @@
+
+**********************************************************
+6 de ABRIL 2022
+ TERMINADA LA ENTREGA DEL SPRINT 5 AHORA FALTAN
+  1) arreglar las páginas que van a send ".. " y armar bien una página correcta
+  2) CONTRASEÑA (EN LOGIN Y EN MODIFICAR CONTRASEÑA VER EL TEMA DEL CLICK PARA QUE LA VEA)
+  3) en PRODUCTOS: 
+            3-a)que se pueda clickear los productos de OFERTA SEMANA ( flor )
+            3-b)arreglar imágenes
+            3-c)ver si se puede en el slice clickear productos para ver DETALLE
+            3-d) sacar la parte de comprar en detalle o ver como se maneja eso
+  4) EN PAGINA GENERAL 
+      faltan y lo voy a hacer con MODAL ACTIVO
+      4-a) TERMINOS Y CONDICIONES
+      4-b) QUIENES SOMOS
+      4-C) CANALES DE DISTRIBUCIÓN 
+
+5 ) DESDE EL PRINCIPIO QUEDÓ MAL EL TEMA DEL HEADER con RESPONSIVE . ver de arreglar 
+ese tema 
+----------------------------
+SPRINT 6 tengo un jambourd como implementar 9-04-22
+- volver a cargar pdf y esquema de Base porque modifiqué 2 cosas 
+-cargo base producto / type /year y colection 
+----------------------------
+12-04-2022
+VOLVER A CARGAR LA BASE PORQUE HICE MODIFICACIONES EN PIVOT PRODUCT-COLOR-PRODUCT
+FALTA VER COMO CARGO EL BREAK-POINT EN TABLA PRODUCT-STOCK
+13-04
+PIVOT CREO QUE ESTÁ OK
+***EN TABLAS ACCESORIAS (yeras.etc)FALTA AGREGAR QUE NO SE PUEDEN DAR DE BAJA
+   SI HAY ALGÚN PRODUCTO QUE LO TENGA ACTIVO. ¡¡¡ OJO .. ARREGLAR EL DELETE
+** en colección si es menor que 2019 poner EN STOCK
+ 
+
+
+
+
+
+
+

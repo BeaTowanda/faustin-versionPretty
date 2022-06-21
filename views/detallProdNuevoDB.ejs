@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+ 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">-->
+        <link rel="stylesheet" href="/stylesheets/home.css">
+        <link rel="stylesheet" href="/stylesheets/modalSimple.css">
+        <link rel="stylesheet" href="/stylesheets/modalFooter.css">
+        <link rel="stylesheet" href="/stylesheets/global.css">
+        <link rel="stylesheet" href="/stylesheets/detallProd.css">
+     
+        <link rel="stylesheet" href="/stylesheets/sliderTRES.css">
+   
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/https://cdnjs.cloudflare.com/ajax/libs/simple-icons/6.12.0/simpleicons.svgcss/all.min.css" rel="stylesheet" />
+        <link href= "https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Fira+Mono:wght@500&display=swap" rel ="stylesheet" />
+       
+        <script src="https://kit.fontawesome.com/812a77d5cc.js" crossorigin="anonymous"></script>
+        <title>Faustine</title>
+       
+    </head>
+    
+    <body>
+        <%- include('partials/header') %>
+   
+        <main>
+            
+            <div class="altaProductLogo"> 
+                <h3><%= producto.name %></h3>
+                <ul>                   
+                    <li><a href="#modal2">Importante<i class="fas fa-user-edit"></i></a></li>
+                     <% if (oferta){ %>
+                    <li>
+                        <div class="ofertaProducto">
+                            <p><img class="hotWeek" src="/images/hotSale.png"></p>
+                            <br/>
+                            <br/>
+                            <p>Hot-Week :<%= oferta.dtoSale %> % <a href= "/bproduct/ofertas"><img id="sliderSaleLogo" src="/images/nuevoSale.png"></a></p>
+                        <!--   <p class="sliderTres">Hot-Week %:  <%= oferta.dtoSale %> <a href= "/bproduct/ofertas"><i class="fa-solid fa-badge-percent"></i></a></p>-->
+                                
+                        </div>
+                    </li>
+                        <br/>
+                        <% } %>                              
+                </ul>             
+            </div>  
+           
+            <div class="contentImgPrecio">             
+                <div class="contentSlider">                     
+                    <div class="carrusel">
+                        <ul class="carrusel-fotos">
+                            <li id="foto1"><img src= "/images/<%=producto.image_ppal %>" alt=""></li>
+                            <li id="foto2"><img src="/images/<%=producto.image_back %>" alt=""></li>
+                            <li id="foto3"><img src="/images/<%=producto.image_det1 %>" alt=""></li>
+                            <li id="foto4"><img src="/images/<%=producto.image_det2 %>" alt=""></li>
+                            <li id="foto5"><img src="/images/<%=producto.image_det3 %>" alt=""></li>
+                            <li id="foto6"><img src="/images/<%=producto.image_ppal %>" alt=""></li>
+                        </ul>
+                     <ul class="carrusel-menu">
+                            <li><a href="#foto1"><img src="/images/<%=producto.image_ppal %>" alt=""></a></li>
+                            <li><a href="#foto2"><img src="/images/<%=producto.image_back %>" alt=""></a></li>
+                            <li><a href="#foto3"><img src="/images/<%=producto.image_det1 %>" alt=""></a></li>
+                            <li><a href="#foto4"><img src="/images/<%=producto.image_det2 %>" alt=""></a></li>
+                            <li><a href="#foto5"><img src="/images/<%=producto.image_det3 %>" alt=""></a></li>
+                            <li><a href="#foto6"><img src="/images/<%=producto.image_ppal %>" alt=""></a></li>
+                     
+                       </ul>
+                   </div>
+                </div>
+                <div class="contentSlider">                  
+                    <div class="carrusel2">
+                        <ul class="carrusel2-fotos">
+                            <li class="sliderPrecio">       
+                                <h3><%= producto.name %></h3>
+                                <p><%= producto.description %></p>
+                                <p><%= producto.description2 %></p>
+                                <br/>
+                                <p id="sliderResalta">  PRECIO $: <%= producto.price %></p>
+                                <p id="sliderResaltaDto">DESCUENTO %:<%= producto.dto %></p>
+                                <br/>
+                                <p>COLORES DISPONIBLES: </p>
+                                <% for (i=0; i< producto.coloresDB.length ;i++) { %>                                    
+                                    <p><%= producto.coloresDB[i].color_name %></p>
+                                <%} %> 
+                            </li>
+                        </ul>
+                   </div>
+                </div>
+                          
+             </div>            
+        <div class="productValores"> 
+                <form action="/bproduct/compra/<%= producto.id %>" method="POST">           
+                    <div class="otrosValores">
+                        <h3>REALIZAR COMPRA </h3>
+                        <input class="noSeVe" id="" placeholder="" type="number"  name="precio" id="user" value="<%= producto.price %>" ></p>
+                        <p> <label id="" for ="cantidadProducto">CANTIDAD ?</label>
+                        <input id="cantidadPlace" placeholder="" type="number" min="1" pattern="^[0-9]+" name="cantidadProducto" id="user" ></p> 
+                        <% if(locals.errorsProd && locals.errorsProd.color){ %>
+                            <br/>
+                            <p id="errorMsge"> <%= errorsProd.cantidadProducto.msg  %> </p>
+                        <% } %> 
+                    </div>
+
+                    <div class="ofertaPorcentaje">
+                        <h1>EL PRECIO DE ESTE PRODUCTO ES :$ <%=producto.price %> </h1>
+                        
+                        <p id ="tituloDto"><label id="" for ="descuento">Sobre Precio se aplicará Descuento :<%= producto.dto %> %</label>
+                        <input class="noSeVe" placeholder="" type="number" name="descuento" id="user" value="<%= producto.dto %>"></p> 
+                        <% if(oferta){ %>
+                        <h2><a href="#modal4"><img id="sale"  src="/images/nuevoSale.png"></a></h2>
+                        <p id ="tituloDto"><label id="userOferta" for ="ofertaSem">HOT-WEEK!  :<%= oferta.dtoSale %> %</label>
+                            <input class="noSeVe" placeholder="" type="number" name="ofertaSem" id="user" value="<%= oferta.dtoSale %>"></p>
+                        <% } %>
+                    </div>
+                     <br/>                       
+                    <div class="seleccionColor">
+                            <h2>Elija UN COLOR para su pedido</h2>
+                            <% if(locals.errorsProd && locals.errorsProd.color){ %>
+                                <br/>
+                                <p id="errorMsge"> <%= errorsProd.colores.msg  %> </p>
+                            <% } %> 
+                            <br/>
+                           <!--- <div class="colores"> -->
+                            <% for (i=0 ; i< producto.coloresDB.length; i++){ %> 
+                            <!--<p><img id="colorList" src="public/images/<=% colors[i].color_image %>"></p> -->
+                          <!---  <label for="colores"><%= producto.coloresDB[i].color_name %> -->
+                        <P><%= producto.coloresDB[i].color_name %> <img src="/images/<%= producto.coloresDB[i].color_image %>"></P>
+                        <p><input id="" type="checkbox" name="colores" class="" value="<%= producto.coloresDB[i].id %>"></p>
+                        <p></p>
+                         
+                            <br/>     
+                            <% } %>
+                    </div>
+   
+                <div id="modal2" class="modalmask">            
+                    <div class="modalbox rotate">
+                        <a href="#close" title="Close" class="close">X</a>
+                        <h2>ENVIO-COSTOS</h2>
+                        <p>Podés OPTAR por envío Standard o PREMIUM
+                            al momento de la COMPRA podés CONSULAR</p>
+                        <p>El COSTO de envío Standard es sensiblemente MENOR </p>
+                       
+                          
+                    </div>
+                </div>
+                <div id="modal4" class="modalmask">            
+                    <div class="modalbox rotate">
+                        <a href="#close" title="Close" class="close">X</a>
+                        <h2>Hot-Week!  EN ESTE PRODUCTO</h2>
+                        <p>Sobre PRECIO CON DESCUENTO SE APLICARÁ </p>
+                          <p> el DTO DE HOT-WEEK !
+                              verá el monto final en CARRITO 
+                          </p> 
+                        
+                    </div>
+                </div> 
+                <input type="submit" name="submit" id="enviar" value="COMPRAR "> </input>
+                <br/>
+                <br/>
+                <a href="/bproduct/listarProdType/<%= producto.pType.id %>" id="enviar2">VER PRODUCTOS SIMILARES</a>
+                <br/>
+                <br/>
+
+            </div>        
+                <div class="submitMasEnviarDeT">                          
+                   
+                    <br/> 
+                    <p><a href="/" id="vuelvo">Volver a Pagina Principal</a></p>
+                    <br/>
+                    <br/>
+                    <br/>                 
+                </div> 
+        </form>
+        </main>
+        <footer>
+        <%- include('partials/footer') %>
+        <script src="js/retail.js"></script>   
+        <script src="js/letter.js"></script>
+        </footer>
+    </body>
+</html>
+       

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+ 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/stylesheets/home.css">
+        <link rel="stylesheet" href="/stylesheets/global.css">
+        <link rel="stylesheet" href="/stylesheets/altaProducto.css">
+        <link rel="stylesheet" href="/stylesheets/updateProducto.css">
+        <link rel="stylesheet" href="/stylesheets/modalSimple.css">
+        <link rel="stylesheet" href="/stylesheets/modalFooter.css">
+        <link rel="stylesheet" href="/stylesheets/listadosContenidosTablas.css">
+
+        <script src="https://kit.fontawesome.com/812a77d5cc.js" crossorigin="anonymous"></script>
+        <title>Faustine</title>
+       
+    </head>
+ 
+<body> 
+        <%- include('partials/header') %>
+<main>
+        <div class="altaProductLogo">
+            <h3> OFERTAS SEMANALES  </h3>
+         <ul>      
+            <li><img id="trashLogo" src ="/images/trash-can-solid.svg"></li>
+            <li><a href="#modal2">Importante<i class="fas fa-user-edit"></i></a></li>
+            </ul>            
+        </div>
+   
+                <form action="/bproduct/updateOfertas?_method=PUT" method="POST" > 
+                    <h3>La OFERTA SEMANAL actual es:</h3>
+                    <h3>con DESCUENTO <%= produSales[0].dtoSale %> %</h3>
+                    <p>Si NO desea modificar VUELVA A PAGINA PPAL</p>
+                    <div class="descriptionProductSale">
+                       
+                    <% for (i=0 ; i< produSales.length ; i++) {%>
+                        
+                        <spam><img id="archivo1" src="/images/<%=produSales[i].saleP.image_ppal %>"></spam>
+                    <% } %>
+                        <p><%= produSales.dtoSale %></p>       
+                        <br/>
+                    </div>  
+                                
+                    <p > Elija CUATRO(4) PRODUCTOS PARA OFERTAR ESTA SEMANA </p>
+                   <!--<div class = "listadoEnBase"> -->
+
+                        <div class="seleccionOfertas">
+                            <h3>Productos Disponibles</h3>
+ 
+                        <% for( let i = 0; i < productos.length; i++ ) { %>
+                            <p><input type="checkbox" name="producto" id="talles" value="<%= productos[i].id %>"><%= productos[i].name %> </p>    
+                        <% } %>
+                        <% if(locals.errorsProd && locals.errorsProd.producto){ %>
+                            <span id="errorMsge" > <%= errorsProd.producto.msg  %> </span>
+                        <% } %> 
+                        <br/>
+                        <h3><label id="" for ="descuento">Ingrese Descuento SEMANAL </label>
+                            <input placeholder="" type="number"  name="descuento" id="dtoSale" value=""></h3>
+                            <% if(locals.errorsProd && locals.errorsProd.descuento){ %>
+                                <span id="errorMsge" > <%= errorsProd.descuento.msg  %> </span>
+                            <% } %> 
+                        </div>                
+                
+                <div id="modal2" class="modalmask">            
+                    <div class="modalbox rotate">
+                        <a href="#close" title="Close" class="close">X</a>
+                        <h2>IMPORTANTE</h2>
+                        <p> SI MODIFICA OFERTA SEMANAL deberá 
+                            escoger nuevamente 4 productos e informar
+                            el DESCUENTO ofrecido 
+                             </p>
+                                           
+                         
+                        </div>
+                </div>
+                <div class="submitMasEnviar">          
+                    <input type="submit" name="submit" id="irBaja" value="ACTUALIZAR OFERTAS "> </input>
+                </div>  
+                
+                <div class= "closeMain" >
+                <a href="/" id="vuelvo">Volver a Pagina Principal</a>
+                </div>
+            </form>
+</main>
+</body>
+        <footer>                          
+          
+            <%- include('partials/footer') %>                
+        </footer>   
+
+</html>

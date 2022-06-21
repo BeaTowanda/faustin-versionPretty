@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Fira+Mono:wght@500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/812a77d5cc.js" crossorigin="anonymous"></script>
+    <link rel="https://fontawesome.com/">
+  
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <link rel="stylesheet" href="/stylesheets/global.css">
+    <link rel="stylesheet" href="/stylesheets/home.css">
+    <link rel="stylesheet" href="/stylesheets/modalFooter.css">
+
+    <title>Login</title>
+</head>
+
+<body>
+  
+    <%- include('partials/header') %>
+
+<div class="bodyLoginNuevo">
+    
+    <div class="cuerpoLoginNuevo">   
+    <div class="errores">
+        <ul></ul>
+    </div>       
+    <form action="/busers/login" method="POST">
+        <div class ="paginaLogin">
+            <div class="bodyLogoLogin">
+                <i id="logoLogin" class="fas fa-user-circle" ></i>
+           </div>
+        <%- include('partials/cuerpoLoginDB') %>  
+        </div> 
+        <div class="button">    
+            <input type="submit" name="submit" class="boton1" value="Iniciar Sesión"> </input>
+           
+        </div>             
+        
+        <div class="cuentaYContraseña">                     
+            <p>
+                <a href= "/busers/olvido" class="linkCrearCuenta">¿Olvidaste tu contraseña?</a>
+            </p>
+            <p>
+                <a href= "/busers/register" class="linkCrearCuenta">Crea tu cuenta</a>
+            </p>            
+              
+            <p>
+                <a href= "/busers/cambio" class="linkCrearCuenta">Modificar Contraseña</a>
+            </p>
+            <p id="volver"><a href="/" class= "boton1">Volver a Pagina Principal</a></p>
+        </div>
+      
+    </fom>
+</div>  
+</div>
+    <footer>
+        <%- include('partials/footer') %>
+       
+    </footer>
+<script src="js/login.js"></script>
+<script src="js/retail.js"></script>   
+<script src="js/letter.js"></script> 
+</body>
+
+</html>

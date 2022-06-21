@@ -1,0 +1,253 @@
+
+.sliderPrecio{
+    color:#e0e0e0;
+   /* font-family: "Permanent Maker";*/
+    font-family: "Fira Mono", monospace;
+}
+.sliderPrecio h3{
+    color:#eeeeee;
+    font-style: italic;
+    font-family: "Permanent Maker";
+    font-weight:bold;
+}
+
+#sliderResalta{
+    font-weight: bolder;
+    font-size:x-large;
+    color:#15ab92;
+}
+#sliderResaltaDto{
+    color:#C8631B;
+    font-size: larger;
+    font-weight: bolder;
+}
+ /* saleLogo viene de home.css */
+  .carrusel {
+    display: flex;
+    gap: 10px;
+    justify-content: center;   
+  }
+  
+  .carrusel ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    /*max-width: 1030px;*/
+     /*max-width: 510px;*/
+     max-width: 350px;
+    scroll-behavior: smooth;
+  }
+  
+  .carrusel-fotos {
+    display: flex;
+    text-align: center;
+    gap: 10px;
+    overflow: visible;
+    border-radius: 8px;
+    box-shadow: #eeeeee 0px 4px 16px, #eeeeee 0px 8px 24px, #eeeeee 0px 16px 56px;   
+   /*box-shadow: #eeeeee 0px 20px 30px -10px;*/
+    /*box-shadow: #eeeeee 0px 30px 60px -12px inset, #eeeeee 0px 18px 36px -18px inset;*/
+    /*box-shadow: #eeeeee 0px 13px 27px -5px, #eeeeee 0px 8px 16px -8px;*/
+  }
+  
+  .carrusel-fotos img {
+    /*background: black;*/
+    background: #540b0e;
+    /*border: 4px solid black;*/
+    border-radius: 4px solid #eeeeee;
+    max-width: 350px;
+    height: 200px;
+    /*width: 400px;
+    height: 300px;*/
+  
+    object-fit: contain;
+    
+  }
+  
+  .carrusel-menu {
+    display: none;
+  }
+  
+  @media screen and (min-width: 500px) {
+    .carrusel-fotos {
+      overflow: hidden;
+    }
+  
+    .carrusel-fotos img {
+      width: 500px;
+      height: 400px;
+      
+    }
+    .carrusel-menu {
+      display: block;
+    }
+    .carrusel-menu img {
+      box-sizing: border-box;
+      width: 50px;
+      height: 40px;
+      border: 5px solid #424242;
+    }
+    .carrusel-menu img:hover {
+      border: none;
+    }
+  }
+  /**********************/
+  
+  @media screen and (max-width: 500px) {
+    .carrusel-fotos {
+      overflow: hidden;
+
+    }
+  
+    .carrusel-fotos img {
+      /*width: 500px;
+      height: 400px;*/
+      max-width: 350px;
+      max-height: 300px;
+      
+    }
+    .carrusel ul{
+        max-width:250px;
+        max-height: 200px;
+    }
+    .carrusel-menu {
+      display: flex;
+      flex-direction: row;
+      
+    }
+    .carrusel-menu img {
+      box-sizing: border-box;
+      width: 50px;
+      height: 40px;
+      border: 5px solid #424242;
+    }
+    .carrusel-menu img:hover {
+      border: none;
+    }
+    .carrusel {
+        flex-direction: column;
+    }
+  }
+/***************++*/
+  
+div.ofertaProducto{
+      display:flex;
+      flex-direction: row;
+      width:60rem;
+      height: 8rem;
+      justify-items: center;
+      padding:0 1.5rem 1rem 1rem;
+      box-sizing: border-box;
+      font-size:2rem;
+      color:#e0e0e0;
+     
+      margin-bottom: 0.5rem;
+  }
+  .ofertaProducto p{
+     padding-top:1.2rem; 
+     padding-left: 6rem;
+  }
+  .hotWeek{
+    width:15rem; 
+    height:8rem;
+}
+  #sliderSaleLogo{
+      color:#C8631B;
+      width: 5rem;
+      height: 5rem;     
+  }
+  /*-------- ahora describo los contenedores */
+  div.contentImgPrecio{
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      flex-direction: row !important;
+      width: fit-content;
+      justify-content: space-between;
+    
+  }
+  /******************************************/
+  
+/*********************************************************/
+/* segundo carrusel con PRECIOS Y TEXTO y si MENU */
+  
+  .carrusel2 {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding-left: 8px;
+    flex-wrap: wrap;
+    
+  }
+  
+  .carrusel2 ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 4px;
+    
+    /*max-width: 1030px;*/
+     max-width: 510px;
+    scroll-behavior: smooth;
+  }
+  
+  .carrusel2-fotos {
+    display: flex;
+    width: 20rem;
+    height: 20rem;
+    gap: 10px;
+    overflow: auto;
+    border-radius: 8px;
+    text-align: center;
+    border-color:#eeee 0 0 #15ab92;
+    border-width: 5px;
+    box-shadow:#e0e0e0 5px 5px, #15ab92 10px 10px, #C8631B 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px, rgba(240, 46, 170, 0.05) 25px 25px;
+    /*box-shadow: #eeeeee 0px 4px 16px, #eeeeee 0px 8px 24px, #eeeeee 0px 16px 56px;*/
+   /*box-shadow: #eeeeee 0px 20px 30px -10px;*/
+    /*box-shadow: #eeeeee 0px 30px 60px -12px inset, #eeeeee 0px 18px 36px -18px inset;*/
+    /*box-shadow: #eeeeee 0px 13px 27px -5px, #eeeeee 0px 8px 16px -8px;*/
+  }
+  
+  .carrusel2-fotos img {
+    /*background: black;*/
+    background: #eeeeee;
+    /*border: 4px solid black;*/
+    /*border-radius: 4px solid #eeeeee;*/
+    /*width: 300px;
+    height: 200px;*/
+    width: 400px;
+    height: 300px;
+    object-fit: contain;
+    
+  }
+
+  
+  .carrusel2-menu {
+    display: none;
+  }
+  
+  @media screen and (min-width: 500px) {
+    .carrusel2-fotos {
+      overflow: hidden;
+    }
+  
+    .carrusel2-fotos img {
+      width: 500px;
+      height: 400px;
+      
+    }
+    .carrusel2-menu {
+      display: block;
+    }
+    .carrusel2-menu img {
+      box-sizing: border-box;
+      width: 50px;
+      height: 40px;
+      border: 5px solid #424242;
+    }
+    .carrusel2-menu img:hover {
+      border: none;
+    }
+  }
+  
+  
+

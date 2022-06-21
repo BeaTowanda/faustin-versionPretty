@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+ 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/stylesheets/home.css">
+        <link rel="stylesheet" href="/stylesheets/global.css">
+        <link rel="stylesheet" href="/stylesheets/altaProducto.css">
+        <link rel="stylesheet" href="/stylesheets/updateProducto.css">
+        <link rel="stylesheet" href="/stylesheets/modalSimple.css">
+        <link rel="stylesheet" href="/stylesheets/modalFooter.css">
+        <script src="https://kit.fontawesome.com/812a77d5cc.js" crossorigin="anonymous"></script>
+        <title>Faustine</title>
+       
+    </head>
+ 
+<body>  
+        <%- include('partials/header') %>
+<main>
+            <div class="altaProductLogo">
+                <h3>ADMINISTRACIÓN : TRABAJAR CON LA BASE  </h3>
+                <ul>      
+                <li><img id="trashLogo" src ="/images/trash-can-solid.svg"></li>
+                <li><a href="#modal2">Importante<i class="fas fa-user-edit"></i></a></li>
+                </ul>            
+            </div> 
+            
+            
+                <div class="descriptionProduct">
+                   
+                    <a href= "/bproduct/altaType">DAR ALTA TIPO DE PRODUCTO</a>
+                    <br/>
+                    <a href= "/bproduct/listType">Baja TIPO DE PRODUCTO</a>
+                    <br/>
+                    <br/>
+                    <a href= "/bproduct/altaYear">DAR ALTA AÑO DE PRODUCTO</a>
+                    <br/>
+                    <a href= "/bproduct/listYear">Baja AÑO DE PRODUCTO</a>
+                    <br/>
+                    <br/>
+                    <a href= "/bproduct/altaColection"> ALTA COLECCIÓN - PRODUCTO</a>
+                    <br/>
+                    <a href= "/bproduct/listColection">Baja COLECCIÓN - PRODUCTO</a>
+                    <br/>
+                    <br/>
+                    <a href= "/bproduct/altaColor"> ALTA COLOR - PRODUCTO</a>
+                    <br/>
+                    <a href= "/bproduct/listColor">Baja COLOR - PRODUCTO</a>
+                    <br/>
+                    <br/>
+                    <a href= "/bproduct/altaProduct">  ALTA PRODUCTO </a>
+                    <br/>
+                    <br/>
+                    <a href= "/bproduct/verApi">  TRATAR APIS </a>
+                    <br/>
+                    <br/>
+                    <a href= "/bproduct/listProduct">  LISTAR PRODUCTOS </a>
+                    <br/>
+                    <br/>
+                    <a href= "/bproduct/listProduct">  DAR BAJA PRODUCTO </a>
+                    <br/>
+                    <a href= "/bproduct/listRtos">  INGRESAR REMITOS DE PRODUCTO/COLOR </a>
+                    <br/>
+                    <br/>
+                    <a href= "/bproduct/ofertas"> MOSTRAR OFERTAS SEMANALES  </a>
+                    <br/>
+                    <a href= "/bproduct/updateOfertas"> ACTUALIZAR OFERTAS SEMANALES  </a>
+                    
+                    <br/>
+                  <!---  <a href= "/bproduct/probar">  probar includes </a> -->
+                    <br/>
+                    <br/>
+                    <a href= "/busers/login"> LOGIN </a>
+                    <br/>                   
+                    <br/>
+                    <a href= "/busers/register"> ALTA USUARIO </a>
+                    <br/>
+                    <br/>
+                    <a href= "/bproduct/taxes"> ALTA DATOS IMPOSITIVOS </a>
+                    <br/>
+                    <a href= "/busers/altaCategory"> DAR ALTA CATEGORIA USUARIOS </a>
+                    <br/>
+                    <br/>
+                    <a href= "/busers/listCategory"> LISTADO CATEGORIA USUARIOS </a>
+                    <br/>
+                    <br/>
+                    <a href= "/busers/list"> LISTADO USUARIOS </a>
+                    <br/>
+                </div>
+                
+                
+                <div id="modal2" class="modalmask">            
+                    <div class="modalbox rotate">
+                        <a href="#close" title="Close" class="close">X</a>
+                        <h2>IMPORTANTE</h2>
+                        <p> es TEMPORAL DONDE VOY A PONER
+                            TODOS LOS LINKS A LOS DISNTITOS CRUD
+                            DE PRODUCTO  </p>                                          
+                        </div>
+                </div>
+                
+                       
+                <div class= "closeMain" >
+                <a href="/" id="vuelvo">Volver a Pagina Principal</a>
+                </div>
+               
+      
+</main>
+</body>
+        <footer>                          
+           
+            <%- include('partials/footer') %>                
+        </footer>   
+
+   </html > 
+            

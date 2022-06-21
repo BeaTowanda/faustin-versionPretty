@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+ 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/stylesheets/home.css">
+        <link rel="stylesheet" href="/stylesheets/global.css">
+        <link rel="stylesheet" href="/stylesheets/altaProducto.css">
+        <link rel="stylesheet" href="/stylesheets/login.css">
+        <link rel="stylesheet" href="/stylesheets/updateProducto.css">
+        <link rel="stylesheet" href="/stylesheets/modalSimple.css">
+        <link rel="stylesheet" href="/stylesheets/modalFooter.css">
+        <link rel="stylesheet" href="/stylesheets/produNewDB.css">
+
+        <script src="https://kit.fontawesome.com/812a77d5cc.js" crossorigin="anonymous"></script>
+        <title>Faustine</title>
+       
+    </head>
+ 
+<body>  
+        <%- include('partials/header') %>
+<main>
+            <div class="altaProductLogo">
+                <h3>MODIFICAR PRODUCTO </h3>
+                <ul>      
+                <li id="altaLogo"><i class="fas fa-file-alt"></i></li>
+                <li><a href="#modal2">Importante<i class="fas fa-user-edit"></i></a></li>
+                </ul>            
+            </div>          
+            
+        <!--<form action="/product/altaProducto" method="POST" enctype = "multipart/form-data">-->
+            <form action="/bproduct/updateOneDB/<%= producto.id %>" method="POST">
+                <div class="descriptionProduct">
+                    <p>Nombre actual:<%= producto.name %></p>
+                    <p><label id="" for ="nombreProducto">NOMBRE DEL PRODUCTO</label>
+                    <input placeholder="" type="text"  name="name" id="user1" value="<%=producto.name%>" ></p>
+                    <% if(locals.errorsProd && locals.errorsProd.name){ %>
+                        <span id="errorMsge" > <%= errorsProd.name.msg  %> </span>
+                      <% } %> 
+                    <br/>
+                    <p>Descripcion PPal actual: <%= producto.description %></p>
+                    <label id="" for ="descripcionProducto"> </label>                        
+                        <input placeholder="" type="text"  name="description" id="user1" value="<%=producto.description%>" ></p>
+                    <% if(locals.errorsProd && locals.errorsProd.description){ %>
+                        <span id="errorMsge" > <%= errorsProd.description.msg  %> </span>
+                    <% } %>       
+                    <br/> 
+                    <p>Detalle actual: <%= producto.description2 %></p>                     
+                    <label id="" for ="descripcionProducto"></label>
+                        <input placeholder="" type="text"  name="description2" id="user1" value="<%= producto.description2 %>" ></p>
+                    <% if(locals.errorsProd && locals.errorsProd.description2){ %>
+                        <span id="errorMsge" > <%= errorsProd.description2.msg  %> </span>
+                    <% } %>   
+                    <br/> 
+                    <p>Imagen Actual <img id="imagenPPAL" src="/images/<%=producto.image_ppal %>" > </p>
+                    <label id="" for="imagenPPAL">Imagen Principal del Producto</label>
+                    <input placeholder="" type="text" name="imagenPPAL" id="archivo" value="<%=producto.image_ppal%>"> 
+                    <br/>  
+                    <label id="" for="imagenDORSO">Imagen DORSO del Producto</label>
+                    <input placeholder=" " type="text" name="imagenDORSO" id="archivo"value="<%=producto.image_back %>"> 
+                    <br/>
+                    <label id="" for="imagenDetalle1">Imagen DETALLE 1 </label>
+                    <input placeholder="" type="text" name="imagenDetalle1" id="archivo" value="<%=producto.image_det1 %>">
+                    <br/> 
+                    <label id="" for="imagenDetalle2">Imagen DETALLE 2</label>
+                    <input placeholder=" " type="text" name="imagenDetalle2" id="archivo" value=" <%=producto.image_det2 %>" >
+                    <br/> 
+                    <label id="" for="imagenDetalle3">Imagen DETALLE 3</label>
+                    <input placeholder =" " type="text" name="imagenDetalle3" id="archivo" value="<%=producto.image_det3 %>">     
+                </div>
+                <div>                  
+                    <div class="licencias">                      
+                     <p id="actual">COLECCION  actual: <%= producto.pColection.id %> "*"<%=producto.pColection.colection_name %></p> 
+                       
+                            <h3>Indicá COLECCIÓN</h3>
+                            <% for (i=0 ; i< colections.length ; i++){ %>    
+                                <input type="checkbox" name="colection" value="<%= colections[i].id %>"><label><%= colections[i].colection_name %></label>
+                            <% } %> 
+                    
+                    <% if(locals.errorsProd && locals.errorsProd.colection){ %>
+                            <span id="errorMsge" > <%= errorsProd.colection.msg  %> </span>
+                    <% } %>   
+                            <p>Nueva Colección<a href="/bproduct/altaColection"><i class="fas fa-arrow-alt-circle-right"></i></a>
+                            </p>                              
+                    </div>
+
+                    <div class="tipoProducto">                      
+ 
+                        <p id="actual">TIPO de Producto Actual: <%= producto.pType.id %>"*"<%= producto.pType.type_name %> </p>                   
+                        <p> TIPOS de Productos: seleccione</p>
+                         <label id="" for ="tipo"></label>
+                            <% for (i=0 ; i< types.length ; i++){ %>             
+                             <input type="checkbox" name="tipo" value="<%= types[i].id %>"><label><%= types[i].type_name %></label>
+                            <% } %>
+    
+                    <% if(locals.errorsProd && locals.errorsProd.tipo){ %>
+                            <span id="errorMsge" > <%= errorsProd.tipo.msg  %> </span>
+                    <% } %> 
+                            <p>"TIPO"nuevo<a href="/bproduct/altaType"><i class="fas fa-arrow-alt-circle-right"></i></a>
+                            </p>              
+                     </div>
+
+                    <div class="seleccionColorDB">  
+                        <% for(i=0 ;i< producto.coloresDB.length ; i++ ){ %>                    
+                        <p id="actual">COLORES de Producto: <%= producto.coloresDB[i].id %>"*"<%= producto.coloresDB[i].color_name %> </p>
+                        <% } %>
+                        <p id="mensajeRestriccion">no pueden ser modificados</p>   
+                        <br/>
+                    <% if(locals.errorsProd && locals.errorsProd.color){ %>
+                        <br/>
+                        <p id="errorMsge"> <%= errorsProd.color.msg  %> </p>
+                     <% } %> 
+                     
+
+                        <p>Nuevo COLOR<a href="/bproduct/altaColor"><i class="fas fa-arrow-alt-circle-right"></i></a>
+                        </p>
+                    </div>
+                    <div class="seleccionAnio">
+                       
+                        <p id="actual">AÑO PRODUCTO ACTUAL : <%= producto.pYear.id %>"*"<%= producto.pYear.year_name %> </p>  
+                        <p>AÑOS POSIBLES :</p>
+                        <% for (i=0; i < years.length; i++){ %>
+                            <input type="checkbox" name="anio" value="<%= years[i].id %>"><label><%= years[i].year_name %></label>
+                              
+                        <% } %> 
+
+                    <% if(locals.errorsProd && locals.errorsProd.anio){ %>
+                            <span id="errorMsge" > <%= errorsProd.anio.msg  %> </span>
+                    <% } %>
+                    <p>Nuevo AÑO<a href="/bproduct/altaColor"><i class="fas fa-arrow-alt-circle-right"></i></a>
+                    </p> 
+                     
+                    </div>
+                    <div class="productValores">            
+                    <div class="otrosValores">
+                        <p>PRECIO registrado:$ <%= producto.price %></p>   
+                        <label id="" for ="precioProducto"></label>
+                        <input placeholder="" type="number"  name="price" id="user2" value="<%=producto.price %>"></p>
+                    <% if(locals.errorsProd && locals.errorsProd.price){ %>
+                        <span id="errorMsge" > <%= errorsProd.price.msg  %> </span>
+                    <% } %> 
+                        <br/>
+                        
+                    </div>
+                    <div class="ofertaPorcentaje">
+                        <h2><a href="#modal4"><img id="sale" src="/images/icono.sale.png"></a></h2>
+                        <p>DESCUENTO registrado: <%= producto.descuento %></p>   
+                        <label id="" for ="ofertaPorcentaje"></label>
+                            <input placeholder="" type="number"  name="descuento" id="user2" value="<%= producto.dto %>"></p>
+                    <% if(locals.errorsProd && locals.errorsProd.descuento){ %>
+                            <span id="errorMsge" > <%= errorsProd.descuento.msg  %> </span>
+                    <% } %> 
+                    </div>
+                    </div>
+         
+                </div>
+               
+                <div id="modal2" class="modalmask">            
+                    <div class="modalbox rotate">
+                        <a href="#close" title="Close" class="close">X</a>
+                        <h2>RECUERDA</h2>
+                        <p>Si alguna de las características del producto son NUEVAS(ej:un nuevo color, tipo,etc)
+                            deberás proceder a dar el alta:</p>
+                        <p> Está indicado en cada Item.- </p>
+                        <p>Busca el ICONO</p>
+                         
+                    </div>
+                </div>
+                <div id="modal4" class="modalmask">            
+                    <div class="modalbox rotate">
+                        <a href="#close" title="Close" class="close">X</a>
+                        <h2>Oferta/NO Ofertar</h2>
+                        <p>OFERTAR producto:  ingresar un número entero mayor que 1
+                            y menor a  90.-</p>
+                          <p>Si NO DESEA OFERTAR ingrese 1</p>
+                       
+                    </div>
+                </div>
+                <div class="submitMasEnviar">          
+                    <input type="submit" name="submit" id="enviar" value="ACTUALIZAR  PRODUCTO"> </input>
+                    <br/>
+                <a href="/bproduct/bajaProducto/<%= producto.id %>" id="irBaja">DESEA DAR DE BAJA ESTE PRODUCTO ? </a>
+                <br/>
+                </div>        
+                <div class= "closeMain" >
+                
+                <br/>
+                <a href="/" id="vuelvo">Volver a Pagina Principal</a>
+
+                </div>
+               
+        </form>
+         
+</main>
+</body>
+        <footer>
+
+            <%- include('partials/footer') %>
+            <script src="js/retail.js"></script>   
+            <script src="js/letter.js"></script>  
+        </footer>     
+       
+</html > 

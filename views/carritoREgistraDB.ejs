@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/global.css">
+    <link rel="stylesheet" href="/stylesheets/carritoDeCompras.css">
+    <link rel="stylesheet" href="/stylesheets/home.css">
+    <link rel="stylesheet" href="/stylesheets/altaProducto.css">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <link rel="stylesheet" href="/stylesheets/modalSimple.css">
+    <link rel="stylesheet" href="/stylesheets/modalFooter.css">
+    <link rel="stylesheet" href="/stylesheets/finCarrito.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/2393de61a4.js" crossorigin="anonymous"></script>
+    <!--<script src="https://kit.fontawesome.com/812a77d5cc.js" crossorigin="anonymous"></script>-->
+    <link rel="https://fontawesome.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+   
+    <title>Carrito de Compras</title>
+</head>
+<body>
+    <%- include('partials/header') %>
+<main>
+    <form action="/bproduct/endCarrito" method="POST">
+    <div class="tituloPaginaFin">   
+        <h2><i class="fa fa-shopping-cart" aria-hidden="true"></i> </h2>       
+    </div>
+    <div class="datosFacturacion">
+        <p><label id="labelDatosFacturacion" for ="usuario">Usuario : <%= user.usuario %></label>
+        <input placeholder=""  name="usuario" id="noSeVe" value="<%= user.usuario %>"></p>
+        <p><label id="labelDatosFacturacion" for ="idUsuario"></label>
+        <input placeholder=""  name="idUsuario" id="noSeVe" value="<%= user.id %>"></p>
+        <p><label id="labelDatosFacturacion" for ="primerNombre">Nombre: <%= user.primerNombre %></label>
+        <input placeholder=""  name="primerNombre" id="noSeVe" value="<%= user.primerNombre %>"></p>
+        <p><label id="labelDatosFacturacion" for ="apellido">Apellido: <%= user.apellido %></label>
+        <input placeholder=""  name="apellido" id="noSeVe" value="<%= user.apellido %>"></p>
+        <p><label id="labelDatosFacturacion" for ="mail">Mail Registrado: <%=user.mail %></label>
+        <input placeholder=""  name="mail" id="noSeVe" value="<%= user.mail %>"></p>
+        <br/>
+        <% if (impuestos) { %>
+        <div class = "impuestosFact">
+            <p>Condición Impositiva : <%= impuestos.tax_condition %></p>
+            <p>CUIT : <%= impuestos.cuit %></p>
+            <p>CUIL : <%= impuestos.cuil %></p>
+           
+            <p>INGRESOS BRUTOS : <%= impuestos.ingresosBrutos %></p>
+            <p>GANANCIAS  : <%= impuestos.retGanancias %></p>
+        </div>
+        <% } %>
+        <br/>
+        <p><label id="labelDatosFacturacion" for ="factura">Factura Nro: <%= datos.number %></label>
+        <input placeholder=""  name="factura" id="noSeVe" value="<%= datos.number %>"></p>
+        <p><label id="labelDatosFacturacion" for ="direccion">Dirección Entrega: <%= datos.delivery_dir %></label>
+        <input placeholder=""  name="direccion" id="noSeVe" value="<%= datos.delivery_dir %>"></p>
+        <p><label id="labelDatosFacturacion" for ="costoEnvio"></label>
+        <input placeholder=""  name="costoEnvio" id="noSeVe" value="<%= datos.delivery_cost %>"></p>
+        <p><label id="labelDatosFacturacion" for ="total">Total Factura $: <%= datos.total %></label>
+        <input placeholder=""  name="total" id="noSeVe" value="<%= datos.total %>"></p>
+        
+         <br/>
+         <br/> 
+        <div class="submitMasEnviar">          
+            <input type="submit" name="submit" id="enviar" value="CONFIRMAR FACTURACION"> </input>
+        </div>        
+        <div class= "closeMain" >
+        <a href="/" id="vuelvo">Volver a Pagina Principal</a>
+        </div>
+       
+    </form>
+</main>
+
+</body>
+        <footer>
+            <%- include('partials/footer') %> 
+            <script src="js/retail.js"></script>   
+            <script src="js/letter.js"></script>             
+        </footer>     
+       
+</html >

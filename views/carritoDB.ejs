@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/global.css">
+    <link rel="stylesheet" href="/stylesheets/carritoDeCompras.css">
+    <link rel="stylesheet" href="/stylesheets/finCarrito.css">
+    <link rel="stylesheet" href="/stylesheets/home.css">
+    <link rel="stylesheet" href="/stylesheets/login.css">
+    <link rel="stylesheet" href="/stylesheets/modalSimple.css">
+    <link rel="stylesheet" href="/stylesheets/modalFooter.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <!--<script src="https://kit.fontawesome.com/812a77d5cc.js" crossorigin="anonymous"></script>-->
+    <link rel="https://fontawesome.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+   
+    <title>Carrito de Compras</title>
+</head>
+<body>
+  
+    <%- include('partials/header') %>
+<main>
+    <div class="tituloPagina">   
+        <h2><i class="fa fa-shopping-cart" aria-hidden="true"></i> </h2> 
+        <!--TRAIGO LOS DATOS IMPOSITIVOS-->
+        <form action="/bproduct/cierraCompra/<%= suma %>" method="POST">
+         <div class="muestraTax" > 
+        <p><label id="labelDatosFacturacion" for ="taxCondicion">Condicion Impositiva : <%= impuestos.tax_condition %></label>
+            <input placeholder=""  name="taxCondicion" id="noSeVe" value="<%= impuestos.tax_condition %>"></p> 
+        <p><label id="labelDatosFacturacion" for ="taxCuit">CUIT : <%= impuestos.cuit %></label>
+            <input placeholder=""  name="taxCuit" id="noSeVe" value="<%= impuestos.cuit %>"></p>  
+        <p><label id="labelDatosFacturacion" for ="taxCuil">CUIL : <%= impuestos.cuil %></label>
+            <input placeholder=""  name="taxCuil" id="noSeVe" value="<%= impuestos.cuil %>"></p> 
+        <p><label id="labelDatosFacturacion" for ="taxBrutos">Ingresos Brutos : <%= impuestos.ingresosBrutos %></label>
+            <input placeholder=""  name="taxBrutos" id="noSeVe" value="<%= impuestos.ingresosBrutos %>"></p> 
+        <p><label id="labelDatosFacturacion" for ="usuario">Ganancias : <%= impuestos.retGanancias %></label>
+            <input placeholder=""  name="taxGanancias" id="noSeVe" value="<%= impuestos.retGanancias %>"></p>
+        </div> 
+    </div>
+    <section class="productosEnCarrito">
+        <% for (i=0 ; i< compras.length ; i++) { %>
+        <article class="primerProducto">
+            <div><img width="320" height="320" src="/images/<%= compras[i].itemProduct.image_ppal %>" alt= "Cartera"></div>
+            <div><b><label for="producto1" class="titulosDeProductos"><%= compras[i].itemProduct.name %></label></b>
+            <p>Cantidad= <%= compras[i].quantity %></p>
+            <p>Precio Item $ = <%= compras[i].item_u_price %></p></div>
+           <!--- <div class="botonAgregarEliminar"><input type= "button" name="producto1" id="producto1" value="+ 1 -" class="botonesAgregado"></div>-->
+        </article>
+        <% } %>
+       
+    </section>
+
+    <div class="botonesParaPasar">
+        <div><button class="seleccionarVentana"></button></div>
+        <div><button class="seleccionarVentana"></button></div>
+        <div><button class="seleccionarVentana"></button></div>
+    </div>
+
+    <section class="finalizarCompra">
+        <div class="totalEnvio">             
+                <p><a href="#modal2">Importante <i class="fas fa-user-edit"></i></p>              
+                <h3 class="totalEnvio2">Total Compra SIN IVA ni Retenciones: <spam> $ <%= suma %> </spam><h3</div>            
+        </div>
+        <div class="submitMasEnviar">        
+            <input type="submit" name="submit" id="irBaja" value=" FINALIZAR COMPRA  "> </input>
+        </div>
+    </form>
+        <div class="finalizar"> 
+            <!--- <p> <button type="submit" class="crearCuentaBoton">CREAR CUENTA</button> -->
+                <a href="/"  id="finalizarHref">SEGUIR COMPRANDO </a>
+                <br/>
+              <!---  <br/>
+                <a href="/bproduct/cierraCompra/<%= suma %>" id="finalizarHref">FINALIZAR COMPRA </a> 
+                <br/>-->
+                <br/>
+                <a href="/bproduct/cancelaCarrito" id="finalizarHref">CANCELAR CARRITO </a>                
+                <br/> 
+                <br/>               
+                <a href="/" id="vuelvo">Volver a la Pagina Principal</a>
+             
+         </div>
+        <!--<div class="direccEntrega">
+            <div class="direccEntrega2"><h3>Direccion de entrega</h4></div>
+            <div class="direccEntrega3">Lorem ipsum dolor sit arnet</div>
+        </div>-->
+        <!--<div class="botonComprar">
+            <input type="button" value="COMPRAR" class="botonDeComprar">
+        </div>-->
+    </section>
+    <div id="modal2" class="modalmask">            
+        <div class="modalbox rotate">
+            <a href="#close" title="Close" class="close">X</a>
+            <h2>RECUERDA</h2>
+            <p> El monto "TOTAL COMPRA" NO INCLUYE : 
+                    1) Costo de envío ( puede optar por envío Premiun /Standar
+                    2) Costos de financiación (según medio de pago)
+                Cuando concluya de elegir productos,podrá definir entrega/modo pago
+                 y le será informado exactamente el monto de la operación </p>       
+        </div>
+    </div>
+</main>
+    <footer>
+        <%- include('partials/footer') %>
+        <script src="js/retail.js"></script>   
+        <script src="js/letter.js"></script>
+    </footer>
+
+</body>
+</html>

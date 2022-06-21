@@ -1,0 +1,383 @@
+/*empieza el main*/
+main{  
+    display: flex;
+    margin: 0 5rem 0 5rem;
+    flex-direction: column;
+    font-size: 14px;
+       
+}
+/* creo que hay que borrar
+main div.altaProdcutLogo{ */  
+    /*display: flex;*/
+/*    display:inline-block;
+    color: #383536;
+    text-align: center;
+    width: 100%;
+    /*justify-content: center;
+    margin-left: 15rem;  
+    flex-direction: column;
+
+    
+    flex-wrap: wrap;
+} */
+ 
+/*** agrego EDITAR ICON***/
+main div.altaProductLogo{
+   display:inline-block;
+    text-align: center;
+    width: 100%;
+    margin:10px;
+    color:#424242;
+    list-style: none;
+    margin-left: 10px;
+   
+}
+div.altaProductLogo ul li{
+    list-style:none;}
+.altaProductLogo i{
+    color:#424242;
+} 
+.altaProductLogo h2{
+    color:#424242;
+}
+.altaProductLogo span{
+    color:#424242
+}
+#altaLogo{
+    font-size:1.5rem;
+    color:#424242;
+}
+#trashLogo{
+    width: 3rem;
+    height: 3rem;
+}
+#logoCarrito{
+    font-size: 3rem;
+}
+#importante{
+    font-size: 2rem;
+    color:#424242;
+}
+.altaProductLogo a{
+    font-size: 1rem;
+    color:#424242;
+    text-decoration: none;    
+}
+.altaProductLogo h3{
+    text-align: left;
+    color:#424242;
+    font-weight: bold;
+
+    padding:4px 0 0 20px,
+}
+/*** termina parte encabezado ALTA */
+.descriptionProduct{
+    font-family: "Fira Mono", monospace;
+    color:#eeeeee;
+    margin:5px 10px 5px 15px;
+    padding:1rem;
+    box-shadow: 0px 0px 10px rgb(100 100 100);  
+}
+/* odifico descriptionProduct para adaptar a OFERTAS */
+.descriptionProductSale{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    font-weight: bold;
+    color:#eeeeee;
+    margin:5px 10px 5px 15px;
+    padding:1rem;
+    box-shadow: 0px 0px 10px rgb(100 100 100);  
+}
+
+#user1{
+    width: 60%;
+}
+/*termina descriptionProduct***/
+/*agregado para Dar Alta Licencia*/
+div.licencias{
+    margin:5px 0 15px 0;
+    font-family:"Fira Mono",monospace;
+  
+}
+div.licencias i,div.tipoProducto i,div.seleccionColor i{
+    color:#424242;
+}
+div.tipoProducto{
+   
+    font-family: "Fira Mono", monoscape;
+}
+div.tipoProducto h2{
+    font-family: "Fira Mono", monoscape;
+    color:#15ab92;
+}
+div.licencias h2{
+    font-family: "Fira Mono", monoscape;
+    color:#15ab92;
+}
+div.licencias p, div.tipoProducto p,div.seeccuibTalle{
+    text-align: center;
+}
+/*titulos h3 del main*/
+main h3{
+    color:#eeeeee;
+    font-weight: bold;
+}
+main div.seleccionColor{
+    display: flex;    
+    flex-direction: row;
+    justify-content: flex-start;
+   
+        
+}
+.seleccionColor h2{
+    font-family: "Fira Mono", monoscape;
+    color:#15ab92;
+}
+main div.seleccionColor p{
+    text-align: center;
+}
+div.colores{
+    display: flex;
+    flex-wrap: wrap;
+    /* height: 6rem; */
+    padding: 5px 5px 5px 5px;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  
+    padding: 1px 1px 1px 1px;
+}
+div.colores label{
+    width: 5%;
+    height: 0.5rem;
+}
+#etiquetaColor{
+    width: 2rem;
+    height: 2rem;
+}
+.inputColor{
+    width: 3rem;
+    height: 2rem;
+}
+
+div.seleccionAnio{
+    margin:1rem 0 1rem 0;
+}
+div.seleccionAnio h2{
+    font-family: "Fira Mono", monoscape;
+    color:#15ab92;
+}
+/* para OFERTAS AGREGO DIV SELECCIONOFERTAS*/
+div.seleccionOfertas{
+    display: flex;
+    flex-direction: column;
+   
+    margin:1rem 0 1rem 0;
+}
+
+#colorNuevo{
+    text-align: center;
+}
+#sale{
+    width: 3rem;
+    height: 3rem;
+    color: black;
+}
+
+#anio{
+    margin-left: 3rem;
+}
+#errorMsgeColor{
+    color:red;
+    align-self: left;
+}
+/* termina talle y color*/
+/*empieza rectángulo productValores*/
+.productValores{  
+   
+    color:#e0e0e0;
+    margin:25px 20px 0px 15px;
+    padding:1rem;
+    box-shadow: 0px 0px 10px rgb(100 100 100);  
+}
+.ofertaPorcentaje{
+    margin-top:10px
+}
+.ofertaPorcentaje h2{
+    margin-left: 3rem;
+    color:black;
+    font-weight: bold;  
+}
+.ofertaPorcentaje i{
+    color:black;
+    width: 3rem;
+}
+#user{
+    width: 25%;
+}
+ 
+main div.submitMasEnviar{    
+    display: flex;
+    flex-wrap: wrap;  
+    flex-direction:column;
+    margin: 8px 8px 8px 8px;
+    /*background-color: #bfa294;*/
+    align-content: space-around;  
+    color: #383536;
+}
+main div.submitMasEnviarDet{    
+    display: flex;
+    flex-wrap: wrap;  
+    flex-direction:column;
+    margin: 10px 1px 10px 18px;
+    /*background-color: #bfa294;*/
+    align-content: space-around;  
+    color: #383536;
+}
+#vuelvoSIN{
+    text-align: center;
+
+    height: 1.8rem;  
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration-line:none;
+    border-radius: 10px;
+    margin-left: 5rem;
+    margin:0px;  
+    text-align: center;
+          
+    border-radius:20px;
+    color:black;
+    font-weight: strong;
+    margin-bottom: 40rem;
+    background-color: chocolate;
+}
+ 
+#enviar{    
+    background-color:#15ab92;
+    width: 12rem;
+    height: auto;
+    color:black;
+    border-color: black;
+    border-radius: 4px;
+    margin: 10px 0px 10px 20px;  
+}
+#vuelvo{  
+        text-align: center;
+        position:absolute;  
+        width: 15rem;  
+        height: 1.8rem;  
+        font-size: 0.9rem;
+        font-weight: bold;
+        text-decoration-line:none;
+        border-radius: 10px;
+        margin-left: 5rem;
+        margin:0px;  
+        text-align: center;
+        background-color: #bfa294;        
+        border-radius:20px;
+        color:black;
+        font-weight: strong;
+        margin-bottom: 40rem;        
+       }
+
+    /***********************************+*/      
+ 
+input{
+    background-color:#37474f;
+    border-radius: 3px;
+    width: 8rem;
+    color:#e0e0e0;
+}
+#inputColor{
+    background-color:#F4F1DE ;
+    border-radius: 1px;
+    width: 8rem; 
+}
+
+option #anio option{
+    width: 3rem;
+    font-size: 2rem;
+    height: 3rem;
+}
+input:hover{
+    background-color:#9e9e9e;
+}
+/*
+.talle option:hover{
+    background-color:#9EE8A1;
+}*/
+/*botón volver a página ppal*/
+ 
+div.closeMain{
+    display:flex;
+    margin-top:1rem;
+    height: fit-content;
+    text-align: center;
+    justify-content: space-around;
+   
+}
+/*** agregado para DB y USAR LAS IMAGENES COMO TEXTO Y NO COMO FILE */
+#archivo{
+    width: 18rem;
+}
+#archivo1{
+    width: 8rem;
+    height: 8rem;
+}
+#construccion{
+    color:red;
+    font-size:x-large;
+}
+/* agregado para DETALLPRODNUEVODB */
+div .closeMainDetalle {
+    align-self: center;
+}
+/** AGREGO PARA UPDATESALE #dtoSale  */
+#dtoSale{
+    width: 5rem;
+}
+ 
+/***** termina botón volver a página ppal */
+/********************/
+/***********/
+/*Nombre del producto (name)
+● Descripción (description)
+● Imagen (image)
+● Categoría (category)
+● Colores (o cualquier otro campo similar como: tamaños, talles, etc)
+● Precio (price)
+*/
+/*************************************************/
+/* probando el buble para colores */
+/*#colorList{
+    width: 5rem;
+    height: 5rem;
+ 
+}*/
+div.errores ul{
+    color: red;
+    list-style: none;
+    font-size: 1rem;
+}
+#vuelvo{   
+    text-align: center; 
+    position:absolute;  
+    width: 15rem;  
+    height: 1.8rem;  
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-decoration-line:none;
+    border-radius: 4px;
+    margin-left: 5rem; 
+    margin:0px;  
+    border-color: black;
+    text-align: center; 
+    background-color: #eeeeee;        
+    border-radius:20px;
+    color:#540b0e;
+    font-weight: strong;
+          
+   }
+ 

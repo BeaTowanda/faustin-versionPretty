@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+ 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+        <link href= "https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Fira+Mono:wght@500&display=swap" rel ="stylesheet" />
+        <link rel="stylesheet" href="/stylesheets/home.css">
+        <link rel="stylesheet" href="/stylesheets/global.css">
+        <link rel="stylesheet" href="/stylesheets/altaProducto.css">
+        <link rel="stylesheet" href="/stylesheets/updateProducto.css">
+        <link rel="stylesheet" href="/stylesheets/modalSimple.css">
+        <link rel="stylesheet" href="/stylesheets/modalFooter.css">
+        <link rel="stylesheet" href="/stylesheets/enlaces.css">
+        <link rel="stylesheet" href="/stylesheets/login.css">
+        
+        <script src="https://kit.fontawesome.com/812a77d5cc.js" crossorigin="anonymous"></script>
+        <title>Faustine</title>
+       
+    </head>
+ 
+<body>  
+        <%- include('partials/header') %>
+<main>
+            <div class="altaProductLogo">
+                <h3 id="tituloEnlace">ADMINISTRACIÓN : TRABAJAR CON LA BASE  </h3>
+                <ul>      
+                <li><i id ="candado" class="fas fa-lock"></i></li>
+                <li id="candado"><a href="#modal2"><span>Importante</span><i id="candado" class="fas fa-user-edit"></i></a></li>
+                </ul>            
+            </div> 
+            
+            
+                <div class="descriptionProduct">
+                 <div class="cartel">
+                    <p id="tituloCartel">TRATAR PRODUCTOS </p>
+                  <br/>
+                  <br/>
+                 </div>
+                 <div class="categoriasProductos">
+                  <p class="subCartel">CATEGORIAS DE PRODUCTO</p>
+                  <br/>
+                    <ul>
+                        <li><a href= "/bproduct/altaType">Alta TIPO de Producto</a></li>
+                        <li><a href= "/bproduct/listType">Baja TIPO de Producto</a></li>
+                        <br/>
+                        <li><a href= "/bproduct/altaYear">Alta AÑO Colección </a></li> 
+                        <li><a href= "/bproduct/listYear">Baja AÑO Colección</a></li>
+                        <br/>
+                        <li><a href= "/bproduct/altaColection">Alta COLECCION producto</a></li>
+                        <li><a href= "/bproduct/listColection">Baja COLECCIÓN producto</a></li>
+                        <br/> 
+                        <li><a href= "/bproduct/altaColor">Alta COLORES en base productos</a></li>         
+                        <li><a href= "/bproduct/listColor">Baja COLORES en base productos </a></li>
+                        <br/>
+                    </ul>
+                    <p class="subCartel">DATOS DE PRODUCTOS</p>
+                    <br/>
+                    <ul>
+                        <li><a href= "/bproduct/altaProduct">  ALTA Producto </a></li>
+                        <br/>     
+                        <li><a href= "/bproduct/listProduct">Baja/Modificación PRODUCTOS </a></li>
+                        <br/>
+                        <li><a href= "/bproduct/listRtos">  Ingresar REMITOS de productos/color </a></li>
+                        <br/>
+                        <li><a href= "/bproduct/listRtos">  Ingresar REMITOS de productos/color </a></li>
+                        <br/>
+                        <li><a href= "/bproduct/updateOfertas"> Actualizar OFERTAS Semanales </a></li>
+                   </ul>
+                    <br/>
+                </div>
+                  <!---  <a href= "/bproduct/probar">  probar includes </a> -->
+                    <br/>
+                  
+                    <div class="cartelLogin">
+                           <p id="tituloCartel">TRATAR USUARIOS </p>
+                         <br/>
+                    </div>
+                    <div class="categoriasUsuarios">
+                        <ul>
+                       
+                            <li><a href= "/busers/altaCategory"> Alta CATEGORIA usuarios </a></li>
+                            <li><a href= "/busers/listCategory"> Listado CATEGORIA usuarios </a></li>
+                            <li><a href= "/busers/list"> Listado USUARIOS </a></li>
+                            <li><a href= "/bproduct/taxes"> ALTA DATOS IMPOSITIVOS </a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                
+                <div id="modal2" class="modalmask">            
+                    <div class="modalbox rotate">
+                        <a href="#close" title="Close" class="close">X</a>
+                        <h2>IMPORTANTE</h2>
+                        <p> Aquí Ud puede realizar mantenimiento de DATOS
+                            EN LA BASE, por favor verifique bien la información 
+                            antes de aceptar la modificación.-
+                         </p>                                          
+                        </div>
+                </div>
+                
+                       
+                <div class= "closeMain" >
+                <a href="/" id="vuelvo">Volver a Pagina Principal</a>
+                </div>
+               
+      
+</main>
+</body>
+        <footer>                          
+           
+            <%- include('partials/footer') %>
+            <script src="js/retail.js"></script>   
+            <script src="js/letter.js"></script>                
+        </footer>   
+
+</html > 

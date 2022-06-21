@@ -1,0 +1,27 @@
+
+        <header class="header">
+              
+               <div class="logo-nav-container">
+                   <div class="Faustine">
+                       <img  class="logoF" src="/images/logoFaustine.png">
+                       <h3> Faustine </h3>
+                   </div>
+                   <div class="bienvenido" >
+                        <% if (user.usuario !== "no") { %>
+                        <p>Bienvenido!!! <%=user.usuario %></p> 
+                        <% } %>
+                    </div>
+                   
+                   <div class="imgs">
+                    <a href= "/busers/login"><i class="fas fa-user-circle"></i></a>
+                    <a href= "/busers/cerrarSesion"><i class="far fa-pause-circle"></i></a>                    
+                    <a href= "/bproduct/carritoHome"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                    <a href= "/bproduct/ofertas"><i class="fab fa-shopify"></i></a> 
+                    <% if (user.administrador === 2) { %>
+                        <a href="/bproduct/opciones"><i class="fas fa-lock"></i></a>
+                    <% } %>
+                   </div>
+               </div>
+           </header>
+      
+          <!--- <header> -->
