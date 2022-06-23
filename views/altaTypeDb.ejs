@@ -5,7 +5,8 @@
         <meta charset="UTF-8">
         <title>Home</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+ 
+        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Fira+Mono:wght@500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/stylesheets/home.css">
         <link rel="stylesheet" href="/stylesheets/global.css">
         <link rel="stylesheet" href="/stylesheets/altaProducto.css">
@@ -23,11 +24,9 @@
 <body> 
         <%- include('partials/header') %>
 <main>
-            <div class="altaProductLogo">
-                <h3>DAR ALTA TIPO DE PRODUCTO  </h3>
+            <div class="altaProductLogo" sytle="font-size:3rem">              
                 <ul>      
-                <li><img id="trashLogo" src ="/images/trash-can-solid.svg"></li>
-                <li><a href="#modal2">Importante<i class="fas fa-user-edit"></i></a></li>
+                    <li sytle="font-size:3rem">DAR ALTA TIPO DE PRODUCTO</li>                
                 </ul>            
             </div> 
             
@@ -44,19 +43,7 @@
                     <p >TIPOS DE PRODUCTOS ACTUALES </p> 
                     <%- include('partials/listadoEnBase') %>   
        
-                </div>
- 
-                <div id="modal2" class="modalmask">            
-                    <div class="modalbox rotate">
-                        <a href="#close" title="Close" class="close">X</a>
-                        <h2>IMPORTANTE</h2>
-                        <p> Ud está a punto de ELIMINAR REGISTRO
-                            Del producto </p>
-                        <p> Verifique cuidadosamente si es lo que quiere hacer</p>                    
-                         
-                        </div>
-                </div>
-                
+                </div>               
                 <div class="submitMasEnviar">          
                     <input type="submit" name="submit" id="irBaja" value="DAR ALTA TIPO DE PRODUCTO "> </input>
                 </div>        

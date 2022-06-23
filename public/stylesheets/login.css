@@ -83,7 +83,7 @@ div.textoGarantia ul, div.textoGarantia li{
 .cuerpoLogin h3{
     margin-left: 2rem;
 }
-main div.altaProductLogo{
+.altaProductLogo{
     display:inline-block;
      text-align: center;
      width: 100%;
@@ -96,19 +96,22 @@ main div.altaProductLogo{
 div.altaProductLogo ul li{
     list-style: none;
     text-decoration: none;
-    color: black;
+    color:#424242;
 }
 div.ppal ul li a{
     text-decoration: none;
-    color:black;
+    color:#424242;
 }
 #altaLogo{
-    font-size: 4rem;
-    color:black;
+    font-size: 3rem;
+    color:#424242;
+}
+#recuperaPass{
+    font-size: 2rem;
 }
 .altaProductLogo a{
     font-size: 2rem;
-    color:black;
+    color:#424242;
     text-decoration: none;    
 }
 .paginaLogin {

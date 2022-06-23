@@ -25,10 +25,10 @@
 <div class="bodyLoginNuevo">
     
     <div class="cuerpoLoginNuevo">   
-    <div class="errores">
-        <ul></ul>
-    </div>       
-    <form action="/busers/login" method="POST">
+        <div class="errores">
+            <ul></ul>
+        </div>       
+        <form action="/busers/login" method="POST">
         <div class ="paginaLogin">
             <div class="bodyLogoLogin">
                 <i id="logoLogin" class="fas fa-user-circle" ></i>
@@ -36,10 +36,8 @@
         <%- include('partials/cuerpoLoginDB') %>  
         </div> 
         <div class="button">    
-            <input type="submit" name="submit" class="boton1" value="Iniciar Sesión"> </input>
-           
-        </div>             
-        
+            <input type="submit" name="submit" class="boton1" value="Iniciar Sesión"> </input>          
+        </div>                     
         <div class="cuentaYContraseña">                     
             <p>
                 <a href= "/busers/olvido" class="linkCrearCuenta">¿Olvidaste tu contraseña?</a>
@@ -61,9 +59,9 @@
         <%- include('partials/footer') %>
        
     </footer>
-<script src="js/login.js"></script>
-<script src="js/retail.js"></script>   
-<script src="js/letter.js"></script> 
+<script src="/js/login.js"></script>
+<script src="/js/ayuda.js"></script>   
+<script src="/js/letter.js"></script> 
 </body>
 
 </html>

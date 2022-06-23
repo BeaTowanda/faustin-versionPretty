@@ -271,13 +271,13 @@ main div.submitMasEnviarDet{
         font-size: 0.9rem;
         font-weight: bold;
         text-decoration-line:none;
-        border-radius: 10px;
+        border-radius: 5px;
         margin-left: 5rem;
         margin:0px;  
         text-align: center;
-        background-color: #bfa294;        
+        background-color: #9e9e9e;       
         border-radius:20px;
-        color:black;
+        color:#540b0e;
         font-weight: strong;
         margin-bottom: 40rem;        
        }

@@ -302,7 +302,9 @@ const controller = {
   },
   cambioPass: (req, res) => {
     let userHead= invitado(req.session.usuarioLogueado)
-    res.render("loginIrCambioPassDB",{user:userHead});
+    
+      res.render("loginIrCambioPassDB",{user:userHead});
+   
   },
   processLoginCambio: (req, res) => {
     /***** todo igual a LOGIN pero MANDA A PAGINA DE CAMBIAR CONTRASEÑA  */

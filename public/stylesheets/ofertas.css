@@ -1,5 +1,11 @@
 /*************************************
-PRUEBO SACARLO COMO UNA FLOR *************4
+PRUEBO SACARLO COMO UNA FLOR *************/
+.bodyFlor{
+    background-color: #70CC72;
+    display: flex;
+    width: 100%;
+    height: fit-content
+}
 **************************************/
 .cuerpoFlor{
     display:flex;
@@ -8,10 +14,10 @@ PRUEBO SACARLO COMO UNA FLOR *************4
     height: 50%;
     padding: 0rem;
     margin: 0;
-    background: #596778;
+    background: #15ab92;
     color: #EEEEEE;
     /*text-align: center;*/
-    font-family: "Lato", sans-serif;
+   
  }
  main h1{
      display:inline-block;
@@ -34,17 +40,17 @@ PRUEBO SACARLO COMO UNA FLOR *************4
     width: 15rem;  
     height: 1.8rem;  
     font-size: 0.9rem;
-    font-weight: bold;
+    font-family: "Fira Mono",monospace;
     text-decoration-line:none;
     border-radius: 10px;
     margin-left: 5rem; 
     margin:0px;  
     text-align: center; 
-    background-color:#e6d8cc;               
-    border-radius:20px;
-    color:black;
-    font-weight: strong;
-    margin-bottom: 40rem;        
+    background-color:#424242;              
+    border-radius:8px;
+    color:#e0e0e0;
+   
+    /*margin-bottom: 40rem;    */    
    }
 a {
 color: inherit;
@@ -149,7 +155,8 @@ font-size: 26px;
 div.closeMain{
     position: relative;     
     top: 22rem;
-    left: 6rem;    
+    left: 6rem;  
+   
 }
 
 
@@ -167,7 +174,7 @@ text-align: center;
 
 .menu-item:hover {
 background: #EEEEEE;
-color: #3290B1;
+color: #15ab92;
 text-shadow: none;
 }
 
@@ -354,7 +361,7 @@ text-shadow: none;
 /*el lightblue es el que hace de fondo */
 .lightblue {
 /*background-color: #62C2E4;*/
-background-color: #3D405B;
+background-color: #15ab92;
 box-shadow: 3px 3px 0 0 rgba(0, 0, 0, 0.14);
 text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.12);
 }
@@ -380,6 +387,37 @@ transition: all 0.3s ease 0s;
 
 .credit a:hover {
 text-decoration: underline;
+}
+
+#openFLor{
+    font-size: 4rem;
+    text-align: center;
+}
+div.tituloFlor{   
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    width: 100%;
+    height: fit-content;
+    margin-top:10px;
+    margin-left: 5rem;
+    margin-right: 10rem;
+    color:#eeeeee;
+    font-size: 2rem;
+    font-family: "Permanent Maker";
+    font-style: italic; 
+    -webkit-animation:spin 10s linear infinite;
+     -moz-animation:spin 7s linear infinite;
+     animation:spin3 7s linear infinite;   
+}
+@-moz-keyframes spin3 { 100% { -moz-transform: translateX(20rem); } }
+@-webkit-keyframes spin3 { 100% { -webkit-transform: translateX(20rem); } }
+/*@keyframes spin2 { 100% { -webkit-transform: translateX(50px); transform:rotate(360deg); } }*/
+@keyframes spin3 { 100% { -webkit-transform: translateX(20rem); } }
+#imagenHotWeek{
+    width: 15rem;
+    height: 10rem;
 }
 /****************************+
 *********** TERMINA CSS DE LA FLOR **********
@@ -473,4 +511,12 @@ animation:spin2 1s linear infinite;
         left:2rem;
     }
 }
+/*********************************************/
+@media (max-width: 460px) {
+    .tituloFLor{
+        font-size: 0.8rem;
+       
+    };
+}
+
 

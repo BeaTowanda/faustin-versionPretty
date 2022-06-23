@@ -260,7 +260,7 @@ const controller = {
     ];
     db.ProductColection.findAll({
       order: [["id", "ASC"]],
-    }).then(function (productYears) {
+    }).then(function (productColections) {
       if (productColections) {
         res.render("listColectionDb", { array: productColections, user:userHead });
       } else {
@@ -1106,6 +1106,7 @@ const controller = {
     }).then(function (productSales) {
       //return res.json(productSales)
       if (productSales) {
+        //return res.json(productSales)
         res.render("ofertasDB", { produSales: productSales, user:userHead });
       } else {
         let mensaje = "NO HAY OFERTAS DISPONIBLES ";

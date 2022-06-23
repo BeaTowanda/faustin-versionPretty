@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="/stylesheets/formularioRegistro.css">
     <link rel="stylesheet" href="/stylesheets/modalFooter.css">
     <link rel="stylesheet" href="/stylesheets/login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/stylesheets/modalSimple.css">
+   
+   
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Fira+Mono:wght@500&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="https://fontawesome.com/">
     <title>Formulario Registro</title>
@@ -17,17 +20,22 @@
     
     <header>
         <%- include('partials/header') %>
-    </header>    
+    </header> 
+<div class="altaTax" > 
     <h3>ALTA DATOS IMPOSITIVOS  </h3>
-     
+    <p><a href="#modal2">¿ Por qué ?<i class="fas fa-user-edit"></i></a></p>
+</div>
+<div class="containerFormRegistro"> 
+  
     <section class="formularioParaRegistro">
-      
+       
+        <br/>
         <form action="/bproduct/taxes?_method=PUT"  method="POST" >
          
-            <p><label id="" for ="usuario" class="todosLosTitulos">Condición Impositiva</label>
+            <p><label id="condicionTitulo" for ="usuario" class="todosLosTitulos">Condición Impositiva: </label>
                 <br/>
-                <input type= "checkbox" class="todosLosBotones" placeholder="" type="text"  name="condicion" value="Responsabe Inscripto" ><label>Responsable Inscripto</label></p>
-                <input type= "checkbox" class="todosLosBotones" placeholder="" type="text"  name="condicion" value ="Consumidor FInal" ><label>Consumidor Final</label></p>
+                <input type= "checkbox" class="todosLosBotones" placeholder="" type="text"  name="condicion" value="Responsable Inscripto" ><label>Responsable Inscripto</label></p>
+                <input type= "checkbox" class="todosLosBotones" placeholder="" type="text"  name="condicion" value ="Consumidor Final" ><label>Consumidor Final</label></p>
                 <% if(locals.errorsProd && locals.errorsProd.condicion){ %>
                     <span id="errorMsge" > <%= errorsProd.condicion.msg  %> </span>
                   <% } %> 
@@ -47,17 +55,7 @@
                 <p><label id="" for ="Ganancias" class="todosLosTitulos">Retención Ganancias</label>
                 <input class="todosLosBotones" placeholder="" type="text"  name="ganancias"></p>    
                 <br/> 
-                
-            </div>
-                <p class="terYC">
-                    <span>
-                        <label for="terminos">He leido y acepto los Términos y Condiciones</label>                       
-                        <input type="checkbox" name="terminos" value="ok">
-                        <% if(locals.errorsProd && locals.errorsProd.terminos){ %>
-                            <span id="errorMsge" > <%= errorsProd.terminos.msg  %> </span>
-                          <% } %> 
-                        <br/>
-            </div>
+            
             <div class="crearCuenta">
                <!--- <p> <button type="submit" class="crearCuentaBoton">CREAR CUENTA</button> -->
                     <p> <button type="submit" id="enviar">Actualizar </button>                    
@@ -66,13 +64,25 @@
                     <a href="/" id="vuelvo">Volver a la Pagina Principal</a>
                 </p>
             </div>
+            
         </form>
 
     </section>    
-         
+</div>  
+<div id="modal2" class="modalmask">            
+    <div class="modalbox rotate">
+        <a href="#close" title="Close" class="close">X</a>
+        <h2>¿ POR QUÉ TENGO QUE DAR ESTA INFORMACIÓN </h2>
+        <p>Para poder generar factura de su compras, nos es imprescindible
+           que completes estos datos.- 
+           Ofrecemos todas las medidas de seguridad posibles para evitar 
+           que un extraño acceda a estos datos. </p>
+   
+     </div>
+</div>      
     <footer>
         <%- include('partials/footer') %> 
-        <script src="js/retail.js"></script>   
+        <script src="/js/ayuda.js"></script>   
         <script src="js/letter.js"></script>        
     </footer>
     
