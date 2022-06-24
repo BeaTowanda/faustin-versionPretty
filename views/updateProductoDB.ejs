@@ -29,7 +29,7 @@
                 <ul> 
                     <li style="font-size:1.5rem">MODIFICAR producto</li>     
                     <li><i class="fas fa-lock" style="font-size: 3rem;"></i>                   
-                    </lili><a href="#modal2">Importante<i class="fas fa-user-edit"></i></a></li>
+                    <li><a href="#modal2">Importante<i class="fas fa-user-edit"></i></a></li>
                 </ul>            
             </div>          
             
@@ -75,7 +75,7 @@
                 </div>
                 <div>                  
                     <div class="licencias">                      
-                     <p id="actual">COLECCION  actual: <%= producto.pColection.id %> "*"<%=producto.pColection.colection_name %></p> 
+                     <p id="actual">COLECCION  actual:id- <%= producto.pColection.id %> **<%=producto.pColection.colection_name %></p> 
                        
                             <h3>Indicá COLECCIÓN</h3>
                             <% for (i=0 ; i< colections.length ; i++){ %>    
@@ -91,7 +91,7 @@
 
                     <div class="tipoProducto">                      
  
-                        <p id="actual">TIPO de Producto Actual: <%= producto.pType.id %>"*"<%= producto.pType.type_name %> </p>                   
+                        <p id="actual">TIPO de Producto Actual:id- <%= producto.pType.id %>**<%= producto.pType.type_name %> </p>                   
                         <p> TIPOS de Productos: seleccione</p>
                          <label id="" for ="tipo"></label>
                             <% for (i=0 ; i< types.length ; i++){ %>             
@@ -122,7 +122,7 @@
                     </div>
                     <div class="seleccionAnio">
                        
-                        <p id="actual">AÑO PRODUCTO ACTUAL : <%= producto.pYear.id %>"*"<%= producto.pYear.year_name %> </p>  
+                        <p id="actual">AÑO PRODUCTO ACTUAL : id- <%= producto.pYear.id %>**<%= producto.pYear.year_name %> </p>  
                         <p>AÑOS POSIBLES :</p>
                         <% for (i=0; i < years.length; i++){ %>
                             <input type="checkbox" name="anio" value="<%= years[i].id %>"><label><%= years[i].year_name %></label>
@@ -201,7 +201,7 @@
         <footer>
 
             <%- include('partials/footer') %>
-            <script src="js/retail.js"></script>   
+            <script src="/js/ayuda.js"></script>   
             <script src="js/letter.js"></script>  
         </footer>     
        

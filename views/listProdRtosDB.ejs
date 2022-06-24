@@ -5,7 +5,8 @@
         <meta charset="UTF-8">
         <title>Home</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+ 
+        <link href= "https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Fira+Mono:wght@500&display=swap" rel ="stylesheet" />
         <link rel="stylesheet" href="/stylesheets/home.css">
         <link rel="stylesheet" href="/stylesheets/global.css">
         <link rel="stylesheet" href="/stylesheets/altaProducto.css">
@@ -24,25 +25,23 @@
         <%- include('partials/header') %>
 <main>
         <div class="altaProductLogo">
-            <h3> SELECCIONE PRODUCTO : ACTUALIZAR CANTIDADES POR COLOR  </h3>
-         <ul>      
-            <li><img id="trashLogo" src ="/images/trash-can-solid.svg"></li>
+         <ul>
+            <li style="font-size:1.5rem "> SELECCIONE PRODUCTO : Actualizar STOCK </li>
+            <li id="altaLogo"><i class="fas fa-lock"></i></li>      
             <li><a href="#modal2">Importante<i class="fas fa-user-edit"></i></a></li>
             </ul>            
         </div>
-   
-           <!--- <form action="/bproduct/delete/id?_method=DELETE" method="POST" >  --> 
+
                 <div class="descriptionProduct"> 
                     <br/>                     
-                    <p > Seleccione Producto del cual desea ACTUALIZAR REMITOS/stock  </p> 
+                    <p style="color:#15ab92;font-size: large;" > Seleccione Producto del cual desea ACTUALIZAR REMITOS/stock  </p>
+                    <br/> 
                     <div class = "listadoEnBase">
                     <ul>
                         <% for( let i = 0; i < array.length; i++ ) { %>
                             <li><a href="/bproduct/remitos/<%= array[i].id %>">
-                            <spam>Registro:<%= array[i].id %> <spam>Decripción:<%= array[i].name %><img id="archivo1" src="/images/<%=array[i].image_ppal %>"></spam></spam></a> 
-                            
-                            </li> 
-                             
+                            <spam>Registro:<%= array[i].id %> <spam>Decripción:<%= array[i].name %><img id="archivo1" src="/images/<%=array[i].image_ppal %>"></spam></spam></a>                           
+                            </li>      
                             <br/> 
                         <% } %>
                     </ul> 
@@ -53,13 +52,15 @@
                         <a href="#close" title="Close" class="close">X</a>
                         <h2>IMPORTANTE</h2>
                         <p> Clickee el tipo de producto
-                            que desea actualizar CANTIDADES-COLOR 
+                            que desea actualizar STOCK
                         </p> 
                         </div>
                 </div>
       
                 <div class= "closeMain" >
+                <br/>
                 <a href="/" id="vuelvo">Volver a Pagina Principal</a>
+                <br/>
                 </div> 
          
 </main>
@@ -67,7 +68,7 @@
         <footer>                          
           
             <%- include('partials/footer') %>
-            <script src="js/retail.js"></script>   
+            <script src="/js/ayuda.js"></script>   
             <script src="js/letter.js"></script>                
         </footer>   
 

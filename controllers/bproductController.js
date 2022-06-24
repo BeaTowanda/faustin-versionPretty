@@ -445,13 +445,14 @@ const controller = {
       });
     }
     if (errors.errors.length == 1) {
+      let fecha= new Date();
       db.Product.create({
         name: req.body.name,
         description: req.body.description,
         description2: req.body.description2,
         price: req.body.price,
         dto: req.body.descuento,
-        //created : new DATE(),
+        created : fecha,
         id_colection: req.body.colection,
         id_product_year: req.body.anio,
         id_type: req.body.tipo,
@@ -478,7 +479,7 @@ const controller = {
     let userHead= invitado(req.session.usuarioLogueado)
     let array = [];
     db.Product.findAll({
-      order: [["id", "ASC"]],
+      order: [["created", "DESC"]],
     }).then(function (products) {
       if (products) {
         res.render("listProductsDB", { array: products, user:userHead });
@@ -569,6 +570,7 @@ const controller = {
     } else {
       // acordarse de error oculto por eso el 1
       if (errors.errors.length == 1) {
+        let fecha= new Date();
         db.Product.update(
           {
             name: req.body.name,
@@ -577,7 +579,7 @@ const controller = {
             price: req.body.price,
             //falta tema imagenes
             dto: req.body.descuento,
-            //created : new DATE(),
+            created : fecha,
             id_colection: req.body.colection,
             id_product_year: req.body.anio,
             id_type: req.body.tipo,
@@ -1274,6 +1276,7 @@ const controller = {
         break;
       case "all":
         db.Product.findAll({
+          order :[["created","DESC"]],
           include: ["pType", "pColection", "pYear", "coloresDB"],
         }).then(function (products) {
           // if(req.query.nombre == "todos"){

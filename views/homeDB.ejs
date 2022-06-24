@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="/stylesheets/global.css">
         <link rel="stylesheet" href="/stylesheets/barraScile.css">
         <link rel="stylesheet" href="/stylesheets/modalFooter.css">
+        <link rel="stylesheet" href="/stylesheets/modalLetras.css">
         <link rel="stylesheet" href="/stylesheets/login.css">
         <link rel="stylesheet" href="/stylesheets/cards.css">
       <!--  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />-->
@@ -31,8 +32,6 @@
          <% for (i=indiceSlice ; i< finalSlice ; i++) { %>
 		    <div class="slide">
            <a href="/bproduct/detalle/<%= producto[i].id %>"><img id= "imgBarra" src="images/<%= producto[i].image_ppal %>"></a>
-			<!--<img id="imgBarra" src="images/gucci.1.SinFondo.png" height="100" width="250" alt="" >-->
-            <!--<img id="imgBarra" src="images/gucci.1.SinFondo.png">-->
 		    </div>
         <% } %>
 
@@ -62,18 +61,17 @@
     </div>
 
             <section class="productos"> 
-                    <div class="producto">
-                        <p class="novedades">NOVEDADES</p>                      
+                    <div class="producto">                 
+                        <p class="novedades">Nuestra Seleccion                     
                         <div class="container">
+                           
                             <% for (i=indiceHome ;i< finalHome;i++) { %>
-                            <div class="cards" >
-                               
+                            <div class="cards" >                       
                                 <div class="card zenitsu" style =" background-image:url('/images/<%= producto[i].image_ppal %>' );
                                     background-position: center;  background-repeat: no-repeat;background-size: cover;">
                                         <div class="colour"></div>
                                         <div class="card-text">
-                                            <h3><a href="/bproduct/detalle/<%= producto[i].id %>"><span style="color:#540b0e"><%= producto[i].name %></span></a></h3>
-                                           
+                                            <h3><a href="/bproduct/detalle/<%= producto[i].id %>"><span style="color:#540b0e"><%= producto[i].name %></span></a></h3>   
                                             <p><a href="/bproduct/listarProdType/<%= producto[i].pType.id %>"><span> <%= producto[i].pType.type_name %> </spam></a></b></p>
                                         </div>
                                         <div class="colour-bottom"></div>
@@ -84,13 +82,59 @@
                     </div>
     
             </section>
+
+            <section class="productos"> 
+                <div class="producto">
+                    <p class="novedades">mas vendidos</p>                      
+                    <div class="container">
+                        <% for (i=0 ;i< 3;i++) { %>
+                        <div class="cards" >                           
+                            <div class="card zenitsu" style =" background-image:url('/images/<%= nuevos[i].itemProduct.image_ppal %>' );
+                                background-position: center;  background-repeat: no-repeat;background-size: cover;">
+                                    <div class="colour"></div>
+                                    <div class="card-text">
+                                        <h3><a href="/bproduct/detalle/<%= nuevos[i].itemProduct.id %>"><span style="color:#540b0e"><%= nuevos[i].itemProduct.name %></span></a></h3>
+                                        <p style="color:#424242"><b> <%= nuevos[i].itemProduct.description %> </b></p>
+
+                                    </div>
+                                    <div class="colour-bottom"></div>
+                            </div>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+            </section>
+
+            <section class="productos"> 
+                <div class="producto">
+                    <p class="novedades">Novedades </p>                      
+                    <div class="container">
+                        <% for (i=longitudReal ;i>longitudReal-3;i--) { %>
+                        <div class="cards" >
+                           
+                            <div class="card zenitsu" style =" background-image:url('/images/<%= producto[i].image_ppal %>' );
+                                background-position: center;  background-repeat: no-repeat;background-size: cover;">
+                                    <div class="colour"></div>
+                                    <div class="card-text">
+                                        <h3><a href="/bproduct/detalle/<%= producto[i].id %>"><span style="color:#540b0e"><%= producto[i].name %></span></a></h3>
+                                       
+                                        <p><a href="/bproduct/listarProdType/<%= producto[i].pType.id %>"><span> <%= producto[i].pType.type_name %> </spam></a></b></p>
+                                    </div>
+                                    <div class="colour-bottom"></div>
+                            </div>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+
+        </section>
+            
             <section>
                 <div class="iconos">
  
                     <i id="distribucion" class="fas fa-truck-moving" size="1rem" ></i>
                     <i id="distribucion" class="fas fa-credit-card"></i>
-                    <i id="distribucion" class="fas fa-money-bill-wave"></i>
- 
+                    <i id="distribucion" class="fas fa-money-bill-wave"></i> 
                 </div>
                 <div class="modo-pago">
                     <a href="#" class="retail">Envios a todo el país</a>          
@@ -113,6 +157,7 @@
         <%- include('partials/footer') %>
     <script src="js/retail.js"></script>   
     <script src="js/ayuda.js"></script>
+   
     </footer> 
     </body>
     
