@@ -3,9 +3,10 @@
     /*display: flex;
     justify-content: center;
     align-items:center;*/
-    text-align: center;    
-    background-color: #FFFAF0;
-    color:black;     
+    text-align:left;
+    margin-left:3rem;  
+    background-color:#540b0e;
+    color:#9e9e9e;     
 }
 div.tituloPaginaFin h3{ 
     font-size: 3rem;  
@@ -15,15 +16,14 @@ div.tituloPaginaFin h2{
 }
 /********************/
 div.datosFacturacion {
-    font-weight: bold;
-    color:#bfa294;
+    color:#424242;
     margin:5px 10px 5px 15px;
     padding:1rem;
     box-shadow: 0px 0px 10px rgb(100 100 100);  
 }
 #labelDatosFacturacion{
-    color:black;
-    font-weight: bolder;
+    color:#15ab92;
+    font-weight:bold;
 }
 #direccion{
     width: 60%;
@@ -90,15 +90,17 @@ div .impuestosFact{
     margin-left: 1.5rem;
 
 }
-div.muestraTax{
+div.muestraTaxN{
     text-align: left;
     margin-left: 8rem;
-    color:darkslategray;
-    font-weight: bolder;
+    font-weight:bold;
+    width: 20rem;
+    color:#15ab92 !important;
+    box-shadow: #e0e0e0 -5px 5px, #15ab92 -10px 10px, #c8631b -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;  
 }
 #irBaja{
     width: 18rem;
-    background-color:coral;
+    background-color:#c8631b;
     color:black;
     border-radius:20px;
     text-align: center;

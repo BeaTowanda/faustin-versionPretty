@@ -25,7 +25,8 @@
     background-image: url(/images/imagenFondoLogin-01.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    opacity: 70%;
+    list-style: none;
+    text-align: center;
     margin:0rem 2rem 0rem 3rem;
     /*width: 1900px;*/
     padding-bottom: 185px; 
@@ -46,6 +47,7 @@
     background-size: cover;
     opacity: 70%;
     margin:0rem 2rem 0rem 3rem;
+
     /*width: 1900px;*/
     /*text-align: center; */
 }
@@ -59,10 +61,13 @@ div .tituloPolitica{
     color:black;
 }
 div.leyConsumidor{
-    background-color: darkslategray;
-    color: bisque;
+    background-color:#15ab92;
+    color:#424242;
     width: 30%;
     height: 15%;
+    display:block;
+    align-self: center;
+
 }
 div.textoGarantia h3{  
     font-size:x-large;

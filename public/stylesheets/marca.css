@@ -3,6 +3,8 @@
 div.cuerpoLoginMarca{
     height: fit-content;
     text-align: center;
+    list-style: none;
+    text-decoration: none;
     margin: 5rem 5rem 5rem 5rem;
     background-image: url(/images/imagenFondoLogin-01.jpg) !important;
     background-repeat: no-repeat;
@@ -14,7 +16,9 @@ div.cuerpoLoginMarca{
     padding: 1rem 1rem 1rem 1rem ;
 }
 div .texto{
-text-align: left;
+    text-align: left;
+    list-style: none;
+    text-decoration: none;
 }
 
 
@@ -34,3 +38,10 @@ div.cuerpoLoginMarca h2{
         border-radius: 4px;
         margin: 10px 0px 10px 20px;   
     }
+.leyConsumidor{
+    background-color: #424242;
+    color:#e0e0e0;
+    border-radius: 3px;
+    border-width: 8px;
+    border-color: #540b0e;
+}

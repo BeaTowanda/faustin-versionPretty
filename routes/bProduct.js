@@ -40,6 +40,7 @@ router.put("/creaProduct",validatorSOLOProduct.altaProducto,bproductController.c
 router.get("/listProduct",bproductController.listarProduct);
 router.get("/detailOneDB/:id",bproductController.detailOneDB)
 router.post("/updateOneDB/:id",validatorSOLOProduct.updateProducto,bproductController.storeUpdate)
+router.get("/listVisitados",bproductController.visitados)
 // eliminar producto
 router.get("/irBajaProduct",bproductController.irBajaProduct)
 router.get("/bajaProducto/:id",bproductController.bajaProducto)

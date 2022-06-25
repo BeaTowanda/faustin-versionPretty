@@ -51,6 +51,10 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.DATE,
       allowNull: true,
     },
+    visited: {
+      type: dataTypes.INTEGER,
+      allowNull: true,
+    },
     image_ppal: {
       type: dataTypes.STRING,
       allowNull: true,

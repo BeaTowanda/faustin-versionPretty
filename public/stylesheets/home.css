@@ -20,6 +20,7 @@
     /*flex-direction: column;*/  
     justify-content:space-between;
     border-block-color: grey;
+    height: fit-content;
         /*align-self: stretch;*/
 }
 .productos h3{
@@ -109,6 +110,15 @@ div.cajaGrandeA img{
     width: 18rem;
     height: 12rem;
     padding:9px;
+}
+.novedades{
+    font-family: "Permanent Maker";
+    font-size: 2rem;
+    font-style: italic;
+}
+#mensajeOjoHome{
+    font-size: 2rem;
+    color:#15ab92;
 }
 #zoom{
     transition: transform 1s; 

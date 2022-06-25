@@ -529,6 +529,49 @@ const controller = {
     //let producto = productModel.find(id);
     //res.render("updateProductoDB",{producto:producto,colors,years,types,colections})
   },
+  visitados: (req, res) => {
+  
+    let producto = db.Product.findAll({
+      order:[["visited","DESC"]],
+      include: ["pType","pYear","pColection"]
+    })    
+    let types = db.ProductType.findAll();
+    let colections= db.ProductColection.findAll();
+    let anios = db.ProductYear.findAll();
+    let colores= db.ProductColor.findAll();
+    
+    Promise.all([producto,types,colections,anios,colores]).then(function (
+   [
+        product,
+        productTypes,
+        productColections,
+        productYears,
+        productColors,
+      ]) {
+        
+      //return res.json(product) 
+       longitud = product.length-1;      
+       let xslice=longitud-14;
+        indiceSlice=  Math.floor(Math.random()*(xslice-1));
+        finalSlice= indiceSlice+14; 
+
+        let userHead=invitado(req.session.usuarioLogueado);
+        
+        return res.render("homeVisitadosDB", {
+         producto: product,
+         tipos: productTypes,
+         colecciones :productColections,
+         anios : productYears,
+         colores:productColors,
+         indiceSlice:indiceSlice,
+         finalSlice:finalSlice,
+         user:userHead      
+        }
+        );
+      }
+    )
+
+  },
   storeUpdate: (req, res) => {
     // queda analizar la validación de colores.
     let userHead= invitado(req.session.usuarioLogueado)
@@ -579,7 +622,8 @@ const controller = {
             price: req.body.price,
             //falta tema imagenes
             dto: req.body.descuento,
-            created : fecha,
+            updated : fecha,
+            visited:0,
             id_colection: req.body.colection,
             id_product_year: req.body.anio,
             id_type: req.body.tipo,
@@ -730,7 +774,15 @@ const controller = {
       },
     });
     Promise.all([productoD, ofertaD]).then(function ([product, productSale]) {
-      let userHead = invitado(req.session.usuarioLogueado)
+      let userHead = invitado(req.session.usuarioLogueado);
+      visitados = parseInt(product.visited)+1;
+      db.Product.update({
+        visited:visitados
+      },{
+      where:{
+        id:req.params.id
+      }
+    },)
       if (productSale) {
         return res.render("detallProdNuevoDB", {
           producto: product,
@@ -865,33 +917,7 @@ const controller = {
                 ingresosBrutos: impuesto.ingresosBrutos,
                 retGanancias: impuesto.retGanancias,
               };
-              // calcula todos los descuentos y el total item
-              // revisa si hay también precio de OFERTA SEMANAL
-              /*let aux3 = 0;
-              let precioBody = parseInt(req.body.precio);
-              let dtoBody = parseInt(req.body.descuento);
-              let precioSub = precioBody * parseInt(req.body.cantidadProducto);
-              let dto = 100 - dtoBody;
-              let aux2 = 0;
-              aux3 = dto * 0.01;
-              let aux1 = precioSub * aux3;
-              if (req.body.ofertaSem != undefined) {
-                let saleBody = parseInt(req.body.ofertaSem);
-                let sale = 100 - saleBody;
-                aux3 = sale * 0.01;
-                aux2 = aux1 * aux3;
-              } else {
-                // de ofertaSem
-                aux2 = aux1;
-              }
-              // termina los cálculos precio unitario
-              let compra = await db.InvoiceItem.create({
-                id_product: req.params.id,
-                quantity: req.body.cantidadProducto,
-                item_u_price: aux2,
-                id_user: req.session.usuarioLogueado.id,
-                made: 0,
-              }); */
+             
               let otrasCompras = await db.InvoiceItem.findAll({
                 where: {
                   id_user: req.session.usuarioLogueado.id,
@@ -900,7 +926,7 @@ const controller = {
                 include: ["itemProduct"],
               });
               if ( otrasCompras.length === 0 ){
-                let mensaje = "No tiene compras en CARRITO , elija un producto e inicie la compra";
+                let mensaje = "No tiene compras en CARRITO ";
                  res.render("mensajesDB", { mensaje: mensaje, user:userHead });
               }
               else { // SI tiene compras en carrito 

@@ -14,7 +14,8 @@
     <script src="https://kit.fontawesome.com/2393de61a4.js" crossorigin="anonymous"></script>
     <!--<script src="https://kit.fontawesome.com/812a77d5cc.js" crossorigin="anonymous"></script>-->
     <link rel="https://fontawesome.com/">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href= "https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Fira+Mono:wght@500&display=swap" rel ="stylesheet" />
+   
    
     <title>Carrito de Compras</title>
 </head>
@@ -27,7 +28,7 @@
             <h3 class="totalEnvio2">Sub-Total Compra: <spam> $ <%= suma %> </spam></h3>
             <input placeholder="" type="number" name="subTotal" id="noSeVe" value="<%= suma %>" ></p>
             <input placeholder="" type="number" name="nroFact" id="noSeVe" value="<%= facturacion.numero %>" ></p>
-            <div class="muestraTax">
+            <div class="muestraTaxN">
             <p><label id="labelDatosFacturacion" for ="taxCondicion">Condicion Impositiva : <%= impuestos.tax_condition %></label>
                 <input placeholder=""  name="taxCondicion" id="noSeVe" value="<%= impuestos.tax_condition %>"></p> 
             <p><label id="labelDatosFacturacion" for ="taxCuit">CUIT : <%= impuestos.cuit %></label>
@@ -38,7 +39,10 @@
                 <input placeholder=""  name="taxBrutos" id="noSeVe" value="<%= impuestos.ingresosBrutos %>"></p> 
             <p><label id="labelDatosFacturacion" for ="usuario">Ganancias : <%= impuestos.retGanancias %></label>
                 <input placeholder=""  name="taxGanancias" id="noSeVe" value="<%= impuestos.retGanancias %>"></p>
+
             </div>
+            <br/>
+            <br/>
 
     </div>
    <!--- <form action="/bproduct/registraCompra/<%= suma %>" method="POST"> -->
