@@ -811,16 +811,22 @@ const controller = {
         // cargo las bases que quiero usar
         try {
           let impuesto = await db.UserTax.findOne({
+            include:["taxU"],
             where: {
               id_user: req.session.usuarioLogueado.id,
             },
           });
+          //return res.json (userTax)
           if (!impuesto) {
             res.render("formularioTaxesDB", {user:userHead});
           } else {
+            //return res.json(impuesto)
             // de impuesto
             /*guardo los datos de impuestos para acompañar la factura en endCarrito */
             let impuestos = {
+              nombre :impuesto.taxU.first_name,
+              lastNombre:impuesto.taxU.last_name,
+              mail:impuesto.taxU.email,
               id_user: impuesto.id_user,
               tax_condition: impuesto.tax_condition,
               cuit: impuesto.cuit,
@@ -900,6 +906,7 @@ const controller = {
           // cargo las bases que quiero usar
           try {
             let impuesto = await db.UserTax.findOne({
+              include:["taxU"],
               where: {
                 id_user: req.session.usuarioLogueado.id,
               },
@@ -910,6 +917,9 @@ const controller = {
               // de impuesto
               /*guardo los datos de impuestos para acompañar la factura en endCarrito */
               let impuestos = {
+                nombre :impuesto.taxU.first_name,
+                lastNombre:impuesto.taxU.last_name,
+                mail:impuesto.taxU.email,
                 id_user: impuesto.id_user,
                 tax_condition: impuesto.tax_condition,
                 cuit: impuesto.cuit,
@@ -985,6 +995,9 @@ const controller = {
     let row = productModel.find(0);
     let suma = parseInt(req.params.suma);
     let impuestos = {
+      nombre:req.body.firstNameTax,
+      lastNombre:req.body.lastNameTax,
+      mail:req.body.mailTax,
       tax_condition: req.body.taxCondicion,
       cuit: req.body.taxCuit,
       cuil: req.body.taxCuil,
@@ -998,8 +1011,8 @@ const controller = {
       user:userHead
     });
   },
+  //*********************** */
   creaFactura: async (req, res) => {
-    let userHead= invitado(req.session.usuarioLogueado)
     let total1 = parseInt(req.params.suma);
 
     try {
@@ -1050,7 +1063,6 @@ const controller = {
         datos: factura,
         user: req.session.usuarioLogueado,
         impuestos: impuestos,
-        user:userHead
       });
     } catch (error) {
       // final del try
@@ -1058,7 +1070,9 @@ const controller = {
     }
     //} // final del else
   },
+  /********************** */  
   endCompra: async (req, res) => {
+    let userHead= invitado(req.session.usuarioLogueado)
     let factura = await db.Invoice.create({
       number: req.body.factura,
       id_user: req.body.idUsuario,
@@ -1067,8 +1081,9 @@ const controller = {
       total: req.body.total,
     });
     let mensaje = "SE CREO FACTURA EXISTOSAMENTE";
-    res.render("mensajesDB", { mensaje: mensaje , user:userHead});
+    res.render("mensajesDB", { mensaje: mensaje,user:userHead });
   },
+  
   altaTaxes: (req, res) => {
     let userHead= invitado(req.session.usuarioLogueado)
     res.render("formularioTaxesDB", {user:userHead});

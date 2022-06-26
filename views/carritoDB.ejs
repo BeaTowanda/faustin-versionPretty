@@ -28,6 +28,11 @@
         <!--TRAIGO LOS DATOS IMPOSITIVOS-->
         <form action="/bproduct/cierraCompra/<%= suma %>" method="POST">
          <div class="muestraTaxN" > 
+            <p class="labelDatosFacturacion"><%= impuestos.nombre %>/<%=impuestos.lastNombre %></p>
+            <input placeholder=""  name="firstNameTax" id="noSeVe" value="<%= impuestos.nombre %>"></p>
+            <input placeholder=""  name="lastNameTax" id="noSeVe" value="<%= impuestos.lastNombre %>"></p>
+            <p class="labelDatosFacturacion"><%= impuestos.mail %></p>
+            <input placeholder=""  name="mailTax" id="noSeVe" value="<%= impuestos.mail %>"></p>
             <p><label id="labelDatosFacturacion" for ="taxCondicion">Condicion Impositiva : <%= impuestos.tax_condition %></label>
             <input placeholder=""  name="taxCondicion" id="noSeVe" value="<%= impuestos.tax_condition %>"></p> 
             <p><label id="labelDatosFacturacion" for ="taxCuit">CUIT : <%= impuestos.cuit %></label>

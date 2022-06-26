@@ -23,21 +23,26 @@
     <%- include('partials/header') %>
 <main>
     <form action="/bproduct/registraCompra/<%= suma %>" method="POST">
-    <div class="tituloPaginaFin">
+    <div class="tituloPaginaFinFlex">
             <h2><i class="fa fa-shopping-cart" aria-hidden="true"></i> </h2>       
             <h3 class="totalEnvio2">Sub-Total Compra: <spam> $ <%= suma %> </spam></h3>
             <input placeholder="" type="number" name="subTotal" id="noSeVe" value="<%= suma %>" ></p>
             <input placeholder="" type="number" name="nroFact" id="noSeVe" value="<%= facturacion.numero %>" ></p>
-            <div class="muestraTaxN">
-            <p><label id="labelDatosFacturacion" for ="taxCondicion">Condicion Impositiva : <%= impuestos.tax_condition %></label>
+            <div class="muestraTaxFin">
+                <p class="labelDatosFacturacion"><%= impuestos.nombre %>/<%=impuestos.lastNombre %></p>
+                <input placeholder=""  name="firsNameTax" id="noSeVe" value="<%= impuestos.nombre %>"></p>
+                <input placeholder=""  name="lastNameTax" id="noSeVe" value="<%= impuestos.lastNombre %>"></p>
+                <p class="labelDatosFacturacion"><%= impuestos.mail %></p>
+                <input placeholder=""  name="mailTax" id="noSeVe" value="<%= impuestos.mail %>"></p>
+                <p><label id="labelDatosFacturacion" for ="taxCondicion">Condicion Impositiva : <%= impuestos.tax_condition %></label>
                 <input placeholder=""  name="taxCondicion" id="noSeVe" value="<%= impuestos.tax_condition %>"></p> 
-            <p><label id="labelDatosFacturacion" for ="taxCuit">CUIT : <%= impuestos.cuit %></label>
+                <p><label id="labelDatosFacturacion" for ="taxCuit">CUIT : <%= impuestos.cuit %></label>
                 <input placeholder=""  name="taxCuit" id="noSeVe" value="<%= impuestos.cuit %>"></p>  
-            <p><label id="labelDatosFacturacion" for ="taxCuil">CUIL : <%= impuestos.cuil %></label>
+                <p><label id="labelDatosFacturacion" for ="taxCuil">CUIL : <%= impuestos.cuil %></label>
                 <input placeholder=""  name="taxCuil" id="noSeVe" value="<%= impuestos.cuil %>"></p> 
-            <p><label id="labelDatosFacturacion" for ="taxBrutos">Ingresos Brutos : <%= impuestos.ingresosBrutos %></label>
+                <p><label id="labelDatosFacturacion" for ="taxBrutos">Ingresos Brutos : <%= impuestos.ingresosBrutos %></label>
                 <input placeholder=""  name="taxBrutos" id="noSeVe" value="<%= impuestos.ingresosBrutos %>"></p> 
-            <p><label id="labelDatosFacturacion" for ="usuario">Ganancias : <%= impuestos.retGanancias %></label>
+                <p><label id="labelDatosFacturacion" for ="usuario">Ganancias : <%= impuestos.retGanancias %></label>
                 <input placeholder=""  name="taxGanancias" id="noSeVe" value="<%= impuestos.retGanancias %>"></p>
 
             </div>
@@ -79,18 +84,17 @@
                 <h3>FORMA DE PAGO </h3>
                 <br/>
                 <div class="imagenesPago"> 
-
-                <input type="checkbox" id = "colorList" name="visa" value="visa" >
-                <label for=""><img id="idPago" src="/images/visa.jpg"></label>          
-                <input type="checkbox" id="amex" name="amex" value="azul">
-                <label for=""><img id="idPago" src="/images/amex.jpg"></label>          
-                <input type="checkbox" id="mp" name="mp" value="aqua">
-                <label for=""><img id="idPago" src="/images/mp.jpg"></label>          
-                <input type="checkbox" id ="master" name="master" value="superman">
-                <label for=""><img id="idPago" src="/images/master.jpg"></label>
-                <input type="checkbox" id ="banco" name="banco" value="superman">
-                <label for="" class="iconoPago" ><i class="fa-solid fa-money-check"></i></label>
-            </div>  
+                    <input type="checkbox" id = "colorList" name="visa" value="visa" >
+                    <label for=""><img id="idPago" src="/images/visa.jpg"></label>          
+                    <input type="checkbox" id="amex" name="amex" value="azul">
+                    <label for=""><img id="idPago" src="/images/amex.jpg"></label>          
+                    <input type="checkbox" id="mp" name="mp" value="aqua">
+                    <label for=""><img id="idPago" src="/images/mp.jpg"></label>          
+                    <input type="checkbox" id ="master" name="master" value="superman">
+                    <label for=""><img id="idPago" src="/images/master.jpg"></label>
+                    <input type="checkbox" id ="banco" name="banco" value="superman">
+                    <label for="" class="iconoPago" ><i class="fa-solid fa-money-check"></i></label>
+                </div>  
             <div class="seleccionCuotas">
                 <h3>Seleccione cantidad de cuotas </h3>
                 <div id="tipoDistribucion">
