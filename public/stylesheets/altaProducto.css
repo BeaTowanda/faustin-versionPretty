@@ -192,7 +192,12 @@ div.seleccionOfertas{
     color:red;
     align-self: left;
 }
-/* termina talle y color*/
+/* IMAGEN COLOR PRODUCTO NUEVO*/
+.colorImagen{
+    width: 45px;
+    height: 22px;
+}
+
 /*empieza rectángulo productValores*/
 .productValores{  
    

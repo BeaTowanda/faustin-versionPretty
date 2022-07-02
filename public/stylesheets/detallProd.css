@@ -137,11 +137,12 @@ div.altaProductLogo ul li{
     margin-left: 1rem; 
     animation: zoom-in-zoom-out 9s 5s ease-out infinite;
 }
-/*main div.superman img{
-    width: 10rem;
-    height: 10rem;
-    animation: zoom-in-zoom-out 12s 5s ease-out infinite;
-}*/
+/* agrego modificación imagen color */
+.detColorImagen{
+    width: 60px;
+    height: 30px;
+}
+
 @keyframes zoom-in-zoom-out {
     0% {
       transform: scale(1, 1);
