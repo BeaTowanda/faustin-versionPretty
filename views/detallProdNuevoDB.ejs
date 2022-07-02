@@ -97,7 +97,7 @@
                         <input class="noSeVe" id="" placeholder="" type="number"  name="precio" id="user" value="<%= producto.price %>" ></p>
                         <p> <label id="" for ="cantidadProducto">CANTIDAD ?</label>
                         <input id="cantidadPlace" placeholder="" type="number" min="1" pattern="^[0-9]+" name="cantidadProducto" id="user" ></p> 
-                        <% if(locals.errorsProd && locals.errorsProd.color){ %>
+                        <% if(locals.errorsProd && locals.errorsProd.cantidadProducto){ %>
                             <br/>
                             <p id="errorMsge"> <%= errorsProd.cantidadProducto.msg  %> </p>
                         <% } %> 
@@ -117,7 +117,7 @@
                      <br/>                       
                     <div class="seleccionColor">
                             <h2>Elija UN COLOR para su pedido</h2>
-                            <% if(locals.errorsProd && locals.errorsProd.color){ %>
+                            <% if(locals.errorsProd && locals.errorsProd.colores){ %>
                                 <br/>
                                 <p id="errorMsge"> <%= errorsProd.colores.msg  %> </p>
                             <% } %> 

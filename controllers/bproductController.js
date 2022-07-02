@@ -805,8 +805,42 @@ const controller = {
       res.render("loginDB",{user:userHead});
     } else {
       const errors = validationResult(req);
+      console.log(errors +"errores en comprar")
+      console.log(errors.errors.colores + "error en color")
+      // si hay errores
       if (errors.errors.length > 0) {
-        res.render("detallProdNuevoDB", { errorsProd: errors,user:userHead });
+        console.log("entró en errors")
+        console.log(errors.mapped())
+        productoD = db.Product.findOne({
+          where: {
+            id: req.params.id,
+          },
+          include: ["pType", "pYear", "pColection", "coloresDB"],
+        });
+        ofertaD = db.ProductSale.findOne({
+          where: {
+            id_product: req.params.id,
+          },
+        });
+        Promise.all([productoD, ofertaD]).then(function ([product, productSale]) {
+          let userHead = invitado(req.session.usuarioLogueado);
+          if (productSale) {
+            return res.render("detallProdNuevoDB", {
+              errorsProd:errors.mapped(),
+              producto: product,
+              oferta: productSale,
+              user:userHead
+            });
+          } else {
+            oferta = [];
+            return res.render("detallProdNuevoDB", {
+              errorsProd:errors.mapped(),
+              producto: product,
+              oferta: productSale,
+              user:userHead
+            });
+            } // del else
+        })  // termina si hay errores 
       } else {
         // cargo las bases que quiero usar
         try {

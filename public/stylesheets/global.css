@@ -103,6 +103,12 @@ div.imgs i, div.imgs img , div.imgs p, div.imgs a{
 #errorMsge{
     color:red;
 }
+div.errores ul{
+    color: red;
+    list-style: none;
+    font-size: 1rem;
+    text-align: center;
+}
 
 
 
