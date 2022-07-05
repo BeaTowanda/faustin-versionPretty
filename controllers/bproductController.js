@@ -38,8 +38,15 @@ const controller = {
     ) {
       res.render("enlacesDB", { user:userHead} )
     } else {
+      // agregando módulo EXPEDICIÓN//
+      if ( req.session.usuarioLogueado &&
+        req.session.usuarioLogueado.categoria == 3){
+          res.render("expeditionDB", {user:userHead} )
+        }
+      else{
       let mensaje = "SU CATEGORIA DE USUARIO NO HABILITA ESTA OPERACION";
       res.render("mensajesDB", { mensaje: mensaje, user:userHead });
+      }
     }
   },
   altaType: (req, res) => {
@@ -791,6 +798,7 @@ const controller = {
         });
       } else {
         oferta = [];
+        //return res.json(product)
         return res.render("detallProdNuevoDB", {
           producto: product,
           oferta: productSale,
@@ -889,6 +897,7 @@ const controller = {
             }
             // termina los cálculos precio unitario
             let compra = await db.InvoiceItem.create({
+              id_color:req.body.colores,
               id_product: req.params.id,
               quantity: req.body.cantidadProducto,
               item_u_price: aux2,

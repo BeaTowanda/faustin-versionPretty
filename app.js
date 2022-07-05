@@ -18,6 +18,7 @@ const usersRouter = require('./routes/users');
 // abajo vienen los routers de BASE DE DATOS 
 const bproductRouter = require("./routes/bproduct");
 const busersRouter = require('./routes/busers');
+const bExpeditionRouter = require("./routes/bExpedition");
 const apiRouter = require('./routes/api');
 
 var app = express();
@@ -46,7 +47,7 @@ app.use('/', indexRouter);
 app.use("/product", productRouter);
 //bproduct serán los que usan la base de datos 
 app.use("/bproduct", bproductRouter)
-
+app.use("/bExpedition", bExpeditionRouter)
 app.use('/users', usersRouter);
 app.use("/busers", busersRouter)
 app.use('/api', apiRouter);

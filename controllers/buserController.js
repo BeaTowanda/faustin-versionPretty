@@ -106,9 +106,8 @@ const controller = {
   },
   processLogin: (req, res) => {
     const errors = validationResult(req);
-    let userHead = invitado(req.session.usuarioLogueado)
-    if (errors.errors.length > 0) {
-      
+    let userHead = invitado(req.session.usuarioLogueado);
+    if (errors.errors.length > 0) {      
       res.render("loginDB", { errorsLogin: errors.mapped(),user:userHead });
     }
 
@@ -166,18 +165,25 @@ const controller = {
     res.render("loginDB",{user:userHead});
   },
   register: (req, res) => {
-    let userHead = invitado(req.session.usuarioLogueado)
+   let userHead = invitado(req.session.usuarioLogueado);
+   console.log(req.session.usuarioLogueado + "usuario Logueado");
+   console.log(userHead.usuario);
+   console.log(userHead.administrador);
     res.render("formularioRegistroDb",{user:userHead});
   },
   altaRegister: (req, res) => {
+    let userHead = invitado(req.session.usuarioLogueado);
+    console.log(req.session.usuarioLogueado.usuario + "usuario Logueado");
+    console.log(userHead.usuario + " es userHead.usuario");
+    console.log(userHead.administrador);
     let errors = [];
     errors = validationResult(req);
-    let userHead = invitado(req.session.usuarioLogueado)
+
     if (errors.errors.length > 0) {
       return res.render("formularioRegistroDb", { errorsReg: errors.mapped(), user:userHead });
     } else {
       // si es usuario autorizado puede elegir categoría
-      if(( user.usuario !=="no") && (user.administrador=== 2) ){
+      if(( userHead.usuario !=="no") && (userHead.administrador=== 2) ){
         catBody = req.body.categoria
       }else {
         catBody = 1
@@ -201,7 +207,7 @@ const controller = {
         });
       });
     }
-    res.redirect("/busers/login");
+    res.render("loginDB",{user:uderHead});
   },
   list: function (req, res) {
     let userHead = invitado(req.session.usuarioLogueado)

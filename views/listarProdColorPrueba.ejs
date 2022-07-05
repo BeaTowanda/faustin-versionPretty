@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+ 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+        <link href= "https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Fira+Mono:wght@500&display=swap" rel ="stylesheet" />
+        <link rel="stylesheet" href="/stylesheets/home.css">
+        <link rel="stylesheet" href="/stylesheets/global.css">
+        <link rel="stylesheet" href="/stylesheets/altaProducto.css">
+        <link rel="stylesheet" href="/stylesheets/updateProducto.css">
+        <link rel="stylesheet" href="/stylesheets/login.css">
+        <link rel="stylesheet" href="/stylesheets/modalSimple.css">
+        <link rel="stylesheet" href="/stylesheets/modalFooter.css">
+        <link rel="stylesheet" href="/stylesheets/listadosContenidosTablas.css">
+
+        <script src="https://kit.fontawesome.com/812a77d5cc.js" crossorigin="anonymous"></script>
+        <title>Faustine</title>
+       
+    </head>
+ 
+<body> 
+        <%- include('partials/header') %>
+<main>
+        <div class="altaProductLogo">
+         <ul>
+            <li style="font-size:1.5rem "> SELECCIONE PRODUCTO : Actualizar STOCK </li>
+            <li id="altaLogo"><i class="fas fa-lock"></i></li>      
+            <li><a href="#modal2">Importante<i class="fas fa-user-edit"></i></a></li>
+            </ul>            
+        </div>
+
+                <div class="descriptionProduct"> 
+                    <br/>                     
+                    <p style="color:#15ab92;font-size: large;" > Seleccione Producto del cual desea ACTUALIZAR REMITOS/stock  </p>
+                    <br/> 
+                    <div class = "listadoEnBase">
+                    <ul>
+                        <% for( let i = 0; i < array.length; i++ ) { %>
+                            <!-- <li><a href="/bproduct/remitos/<%= array[i].id %>">-->
+                                
+                            <spam>Registro:<%= array[i].id %> <spam>Decripción:<%= array[i].name %><img id="archivo1" src="/images/<%=array[i].image_ppal %>"></spam></spam></a>                           
+                            </li>      
+                            <br/> 
+                        <% } %>
+                    </ul> 
+                </div>                
+                
+                <div id="modal2" class="modalmask">            
+                    <div class="modalbox rotate">
+                        <a href="#close" title="Close" class="close">X</a>
+                        <h2>IMPORTANTE</h2>
+                        <p> Clickee el tipo de producto
+                            que desea actualizar STOCK
+                        </p> 
+                        </div>
+                </div>
+      
+                <div class= "closeMain" >
+                <br/>
+                <a href="/" id="vuelvo">Volver a Pagina Principal</a>
+                <br/>
+                </div> 
+         
+</main>
+</body>
+        <footer>                          
+          
+            <%- include('partials/footer') %>
+            <script src="/js/ayuda.js"></script>   
+            <script src="js/letter.js"></script>                
+        </footer>   
+
+</html>

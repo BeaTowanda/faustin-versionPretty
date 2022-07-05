@@ -29,7 +29,5 @@ module.exports = (sequelize, dataTypes) => {
     }
     const ProductColorProduct = sequelize.define(alias, cols, config); 
     
-    
-
     return ProductColorProduct;
 };

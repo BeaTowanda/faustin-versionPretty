@@ -7,11 +7,70 @@ const path = require("path");
 const db = require('../src/database/models');
 const sequelize = db.sequelize;
 
-const validatorUDB = {
-    altaCategory:[
+const validatorEXP = {
+    altaDeposito:[
         check ("name")
         .notEmpty()
-        .withMessage("Debe ingresar CATEGORIA")
+        .withMessage("Debe ingresar NOMBRE")
+        .bail()
+        .custom(function(value){              
+            return db.Deposit.findOne({
+                where:{
+                    name :value
+                } 
+             }) 
+             .then (deposit =>{
+                 if(deposit){
+                     return Promise.reject("Este Depósito YA EXISTE")
+                 }
+             })        
+         } ),
+         check("oncharge")
+            .notEmpty()
+            .withMessage("Debe Ingersar Responsable"), 
+        check("direction")
+            .notEmpty()
+            .withMessage("Debe Ingresar Dirección"),
+        check("horary")
+            .notEmpty()
+            .withMessage("Debe Ingresar Horario")  
+    ],
+    altaProveedor:[
+        check ("name")
+        .notEmpty()
+        .withMessage("Debe ingresar NOMBRE")
+        .bail()
+        .custom(function(value){              
+            return db.Supplier.findOne({
+                where:{
+                    name :value
+                } 
+             }) 
+             .then (supplier =>{
+                 if(supplier){
+                     return Promise.reject("Este Proveedor YA EXISTE")
+                 }
+             })        
+         } ),
+        check("direction")
+            .notEmpty()
+            .withMessage("Debe Ingresar Dirección"),
+        check("mail")
+            .notEmpty()
+            .withMessage("Debe Ingresar MAIL ")
+            .bail()
+            .custom(function(value){              
+                return db.Supplier.findOne({
+                    where:{
+                        email :value
+                    } 
+                 }) 
+                 .then (supplier =>{
+                     if(supplier){
+                         return Promise.reject("Este EMAIL YA EXISTE ")
+                     }
+                 })        
+             } ),  
     ],
     login:[
         check("usuario")
@@ -47,8 +106,8 @@ const validatorUDB = {
                 } 
              }) 
              .then (user =>{
-                 if(!user){
-                     return Promise.reject("Este USUARIO ya Existe ") 
+                 if(user){
+                     return Promise.reject("Usuario INEXISTENTE ") 
                  }
              })        
          } )
@@ -151,4 +210,4 @@ const validatorUDB = {
     ]
 }
 
-module.exports = validatorUDB
+module.exports = validatorEXP

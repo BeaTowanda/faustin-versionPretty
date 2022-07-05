@@ -5,6 +5,7 @@ const authMiddle = require("../middlewares/authMiddle.js");
 
 const multer = require("multer")
 const bproductController = require("../controllers/bproductController")
+
 const {body, check} = require('express-validator')
 const validatorPDB = require("../validator/validatorProductDb"); 
 const validatorSOLOProduct = require("../validator/validatorSOLOProduct");
@@ -12,6 +13,7 @@ const validatorSOLOProduct = require("../validator/validatorSOLOProduct");
 router.get('/buscarPorBarra',bproductController.search);
 router.get('/opciones',authMiddle,bproductController.enlaces);
 router.get('/verApi',authMiddle,bproductController.armarApi);
+
 // TIPO DE PRODUCTO
 
 router.get("/altaType",bproductController.altaType);

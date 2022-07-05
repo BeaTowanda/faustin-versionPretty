@@ -35,12 +35,14 @@ function invitado(ver){
 const mainControllerDB = {
     home: (req, res) => {      
       let producto = db.Product.findAll({
-        include: ["pType","pYear","pColection"]
+        include: ["pType","pYear","pColection","coloresDB"]
       })    
       let types = db.ProductType.findAll();
       let colections= db.ProductColection.findAll();
       let anios = db.ProductYear.findAll();
       let colores= db.ProductColor.findAll();
+      // para ver prod-color-produ
+     
       let vendidos= db.InvoiceItem.findAll({
         order:[["made","DESC"]],
         include:["itemProduct"]
@@ -75,8 +77,9 @@ const mainControllerDB = {
           finalHome= indiceHome + 3;
           //
           let userHead=invitado(req.session.usuarioLogueado);
-          
+          //return res.json(product)
           return res.render("homeDB", {
+          
            producto: product,
            tipos: productTypes,
            colecciones :productColections,

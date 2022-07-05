@@ -10,6 +10,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER(50),
             allowNull: true
         }, 
+        afip_number: {
+            type: dataTypes.STRING(40),
+            allowNull: true
+        },
         invoice_date: {
             type: dataTypes.DATE,
             allowNull: true
@@ -18,7 +22,11 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.BIGINT(10).UNSIGNED,
             allowNull: true
         }, 
-        delivery_dir: {
+        remitNumber: {
+            type: dataTypes.BIGINT(10).UNSIGNED,
+            allowNull: true
+        },
+         delivery_dir: {
             type: dataTypes.STRING(100),
             allowNull: true
         },
