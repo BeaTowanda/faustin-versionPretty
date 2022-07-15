@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+ 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Fira+Mono:wght@500&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="/stylesheets/home.css">
+        <link rel="stylesheet" href="/stylesheets/global.css">
+        <link rel="stylesheet" href="/stylesheets/altaProducto.css">
+        <link rel="stylesheet" href="/stylesheets/updateProducto.css">
+        <link rel="stylesheet" href="/stylesheets/expedition.css">
+  
+        <link rel="stylesheet" href="/stylesheets/modalSimple.css">
+        <link rel="stylesheet" href="/stylesheets/modalFooter.css">
+        <link rel="stylesheet" href="/stylesheets/listadosContenidosTablas.css">
+
+        <script src="https://kit.fontawesome.com/812a77d5cc.js" crossorigin="anonymous"></script>
+        <title>Faustine</title>
+       
+    </head>
+ 
+<body> 
+        <%- include('partials/header') %>
+<main>
+        <div class="altaProductLogo">         
+         <ul>      
+            <li><i id="distribucionEXP" class="fas fa-truck-moving" aria-hidden="true" size="10rem"></i></li>
+            <li><a href="#modal2">Importante<i id="importante" class="fas fa-user-edit"></i></a></li>
+            </ul>            
+        </div>
+        <div class="cajaTablaProduct"> 
+            <div class="tituloListado" >                              
+     <!---       <h3><%= mensaje %></h3>     -->      
+             <h3 id="esH3"><%= mensaje %></h3> 
+             </div>  
+        <form action="/bExpedition/creaItemRemitoUser/<%= array.length %>" method="POST" >
+                     
+            <div class = "listadoSearch-categoriasEXP">
+                                           
+                            <div class="listaProductoBaseEXP">                   
+                                <br/>
+                                <p><label style="color:#15ab92; font-size: 2rem;" for ="nombreProducto">Factura Nro : <%= array[0].made %></label>
+                                <input id ="noSeVeEXP" placeholder="" type="text"  name="madeBody" value="<%= array[0].made %> " ></p>
+                                <p>Dirección de entrega : <%= array[0].invoiceR.delivery_dir %></p> 
+                                <p>Horario    : <%= array[0].invoiceR.horary %></p>  
+                            </div>
+                            <br/>
+                            <br/>
+                    <ul>
+                        <% for( let i = 0; i < array.length; i++ ) { %>
+                           <!--- <li id="listaProdColor"><a href="/bExpedition/itemFactura/<%= array[i].id %>"> <spam><%= array[i].number %> </spam></a></li> -->
+                            <li><label id="" for ="nombreProducto">Producto : <%= array[i].itemProduct.name %></label></li>
+                            <li><input id ="noSeVeEXP" placeholder="" type="text"  name="idProduct" value="<%= array[i].itemProduct.id %> " ></spam> </li>
+                            <li><spam><img id="imagenChica" src="/images/<%= array[i].itemProduct.image_ppal %>"></li>
+                            <li><label id="" for ="nombreProducto">Color : <%= array[i].itemColor.color_name %>** <img id="imagenColorEXP" src= "/images/<%= array[i].itemColor.color_image %>" ></label></li>
+                            <li><input placeholder="" type="number"  name="idItemBody" id="noSeVe" value="<%= array[i].id %>" ></li>
+                            <li><input id ="noSeVeEXP" placeholder="" type="text"  name="idColor" value="<%= array[i].itemColor.id %> " ></li>
+                            <li><label id="" for ="nombreProducto">Cantidad : <%= array[i].quantity %></label></li>
+                            <li><input id ="noSeVeEXP" placeholder="" type="text"  name="cantBody" value="<%= array[i].quantity %> " ></li>
+                            <li><input id ="noSeVeEXP" placeholder="" type="text"  name="idInvoice" value="<%= array[i].invoiceR.id %> " > </li>  
+                            <li><input id ="noSeVeEXP" placeholder="" type="text"  name="idPCPBody" value="<%= array[i].idPCP.id %> " ></li>
+                            <li><input id="noSeVeEXP"  placeholder="" type="text"  name="cantPCPBody" value="<%= array[i].idPCP.quantity %> " ></li>                           
+                                                    
+                        <% } %>
+                        <br/>
+                        <br/>
+                        <p style="color:#15ab92; font-size: 1.7rem;" >Elija Depósito origen</p>
+                        <% for( let i = 0; i < depositos.length; i++ ) { %>
+                            <li><label id="" for ="nombreProducto">Depósito : <%= depositos[i].name %></label>
+                                <input  placeholder="" type="checkbox"  name="idDeposito" value="<%= depositos[i].id %> " ></li>
+                              <!---  <input id="noSeVe" placeholder="" type="number"  name="cantDeposit" value="<%= depositos[i].quantity %> " ></li>  -->
+                        <% } %>
+                        </div>        
+                    </ul> 
+            </div> 
+            <div class="submitMasEnviar">          
+                <input type="submit" name="submit" id="enviar" value="GENERAR REMITO"> </input>
+            </div>        
+            <div class= "closeMain" >
+            <a href="/" id="vuelvo">Volver a Pagina Principal</a>
+            <br/>
+            <br/>
+            </div>
+            </form>              
+                
+                    <div id="modal2" class="modalmask">            
+                        <div class="modalbox rotate">
+                            <a href="#close" title="Close" class="close">X</a>
+                            <h2>IMPORTANTE</h2>
+                            <p> El sistema controla que haya Stock. Luego deberá verificar en depósito ELEGIDO</p>
+                            <p> en la OPCIÓN GENERAR MOVIMIENTOS INTERNOS</p>                    
+                        </div>
+                    </div>
+        </div>        
+        
+        
+</main>
+        <footer>                                   
+            <%- include('partials/footer') %>
+            <script src="/js/ayuda.js"></script>   
+            <script src="js/letter.js"></script>                
+        </footer>   
+</body>
+</html>

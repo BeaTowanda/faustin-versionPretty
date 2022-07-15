@@ -161,10 +161,10 @@ const validatorSOLOP = {
         check("condicion")
                 .notEmpty()
                 .withMessage("Debe Seleccionar este campo"),
-        check("terminos")
+        check("direccion")
                 .notEmpty()
-                .withMessage("Debe aceptar TERMINOS Y CONDICIONES")        
-                 
+                .withMessage("Dirección AFIP obligatoria")
+           
          ] 
 }
 

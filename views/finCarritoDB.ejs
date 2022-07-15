@@ -63,10 +63,17 @@
             <p><label id="" for ="descripcionProducto">CODIGO POSTAL</label>
                 <input placeholder="" type="text" minlength="4" maxlength="18" name="codigoPostal" id="codigoPostal" required "[[A-Za-z ]{1,6}"></p> 
             <br/> 
-    <% if(locals.errorsProd && locals.errorsProd.color){ %>
+    <% if(locals.errorsProd && locals.errorsProd.codigoPostal){ %>
                 <br/>
                 <p id="errorMsge"> <%= errorsProd.codigoPostal.msg  %> </p>
     <% } %> 
+    <p><label id="" for ="nombreProducto">Horario</label>
+        <input placeholder="" type="text" minlength="10" maxlength="45" name="horario" id="direccion" required "[[A-Za-z ]{1,6}"></p>
+        <% if(locals.errorsProd && locals.errorsProd.horario){ %>
+            <br/>
+            <p id="errorMsge"> <%= errorsProd.horario.msg  %> </p>
+<% } %> 
+        <br/>
             <div class="seleccionDistribucion">
                 <h3>Tipo De Distribución</h3>
                 <div id="tipoDistribucion">

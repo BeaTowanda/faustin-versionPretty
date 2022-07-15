@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+ 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Home</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Fira+Mono:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/stylesheets/home.css">
+        <link rel="stylesheet" href="/stylesheets/global.css">
+        <link rel="stylesheet" href="/stylesheets/altaProducto.css">
+        <link rel="stylesheet" href="/stylesheets/updateProducto.css">
+        <link rel="stylesheet" href="/stylesheets/login.css">
+        <link rel="stylesheet" href="/stylesheets/modalSimple.css">
+        <link rel="stylesheet" href="/stylesheets/expedition.css">
+
+        <link rel="stylesheet" href="/stylesheets/modalLetras.css">
+        <link rel="stylesheet" href="/stylesheets/listadosContenidosTablas.css">
+        <link rel="stylesheet" href="/stylesheets/modalFooter.css">
+        <script src="https://kit.fontawesome.com/812a77d5cc.js" crossorigin="anonymous"></script>
+        <title>Faustine</title>
+       
+    </head>
+ 
+<body> 
+        <%- include('partials/header') %>
+<main>
+            <div class="altaProductLogo">   
+                <ul>      
+                <li><i id ="mensajeOjo" class="fas fa-eye"></i></li>
+                <li><h1>EN CONSTRUCCIÓN</h1></li>
+                <br/>
+                <br/>
+                <p class="line-1 anim-typewriter" style="font-size:2rem; color:#e0e0e0">Se han creado Items Remito</p> 
+                <p class="line-1 anim-typewriter" style="font-size:2rem; color:#e0e0e0">Ya se actualizó stock</p>  
+                <p class="line-1 anim-typewriter" style="font-size:2rem; color:#15ab92">Recuerde revisar MOVIMIENTOS INTERNOS</p>
+                <p class="line-1 anim-typewriter" style="font-size:3rem; color:#c8631b">DEBE GENERAR REMITO A CLIENTE</p> 
+                <p class="line-1 anim-typewriter" style="font-size:3rem; color:#c8631b">Sobre la factura <%= facturaNro %></p>  
+                </ul>            
+            </div> 
+                
+                <div id="modal2" class="modalmask">            
+                    <div class="modalbox rotate">
+                        <a href="#close" title="Close" class="close">X</a>
+                        <h2>IMPORTANTE</h2>
+                        <p> Ud está a punto de ELIMINAR REGISTRO
+                            Del producto </p>
+                        <p> Verifique cuidadosamente si es lo que quiere hacer</p>                    
+                         
+                        </div>
+                </div>
+                 <br/>
+                 <br/>      
+                <div class= "closeMainE" >
+                <a  href="/bExpedition/listVtasPending" id="vuelvoE">Seguir ENTREGAS</a> 
+                <br/>
+                <br/>  
+                <a href="/" id="vuelvo">Volver a Pagina Principal</a>
+                <br/>
+                <br/>
+                </div>
+                
+               
+        </form>
+         
+</main>
+</body>
+        <footer>                                   
+            <%- include('partials/footer') %>
+            <script src="/js/ayuda.js"></script>   
+            <script src="/js/letter.js"></script>                
+        </footer>   
+
+</html > 

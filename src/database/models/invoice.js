@@ -23,7 +23,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: true
         }, 
         remitNumber: {
-            type: dataTypes.BIGINT(10).UNSIGNED,
+            type: dataTypes.INTEGER(10),
             allowNull: true
         },
          delivery_dir: {
@@ -32,6 +32,10 @@ module.exports = (sequelize, dataTypes) => {
         },
         delivery_cost: {
             type: dataTypes.INTEGER(10),
+            allowNull: true
+        },
+        horary: {
+            type: dataTypes.STRING(100),
             allowNull: true
         },
         total: {
@@ -49,17 +53,18 @@ module.exports = (sequelize, dataTypes) => {
     const Invoice = sequelize.define(alias, cols, config);
 
     Invoice.associate = function (models) {
-        Invoice.belongsToMany(models.Product, {      
+      /*  Invoice.belongsToMany(models.Product, {      
             as: "prodInvoice",
             through: "invoice-item",
             foreignKey: "id_product",
             otherKey: "id_invoice",
             timestamps: false,
-          });
+          });*/
           Invoice.belongsTo(models.User, {    
             as: "invoiceUser",
             foreignKey: "id_user",
-          })
+          });
+          
           
     }
     return Invoice

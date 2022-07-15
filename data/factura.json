@@ -1,13 +1,17 @@
 [
  {
   "id": 0,
-  "numero": 185,
+  "numero": 194,
+  "remito": 100,
+  "senialRemito": 5,
   "standard": 3500,
   "premiun": 6000
  },
  {
   "id": 1,
   "numero": 101,
+  "remito": 101,
+  "senialRemito": 999,
   "standard": 3500,
   "premiun": 6000
  }

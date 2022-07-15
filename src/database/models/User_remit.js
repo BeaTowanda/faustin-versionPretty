@@ -10,10 +10,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER(10),
             allowNull: true
         }, 
-        dateExpedition: {
-            type: dataTypes.DATE,
-            allowNull: true
-        }, 
+         
         id_prod_color_prod: {
             type: dataTypes.BIGINT(10).UNSIGNED,
             allowNull: true
@@ -30,22 +27,20 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.BIGINT(10).UNSIGNED,
             allowNull: true
         }, 
-        id_itemInvoice: {
+        id_invoiceItem: {
             type: dataTypes.BIGINT(10).UNSIGNED,
             allowNull: true
-        },     
+        },   
+        id_invoice: {
+            type: dataTypes.BIGINT(10).UNSIGNED,
+            allowNull: true
+        },  
+          
         quantity: {
             type: dataTypes.INTEGER(10),
             allowNull: true
         }, 
-        date_reception: {
-            type: dataTypes.DATE,
-            allowNull: true
-        },
-        dniReception: {
-            type: dataTypes.INTEGER(8),
-            allowNull: true
-        },
+        
         zona: {
             type: dataTypes.INTEGER(10),
             allowNull: true
@@ -79,8 +74,12 @@ module.exports = (sequelize, dataTypes) => {
         });
         UserRemit.belongsTo(models.InvoiceItem, {
             as:"usItem",
-             foreignKey:"id_itemInvoice"
+             foreignKey:"id_invoiceItem"
         });
+        UserRemit.belongsTo(models.Invoice, {
+            as:"usRInvoice",
+             foreignKey:"id_invoice"
+        })
     }
     return UserRemit
     }  

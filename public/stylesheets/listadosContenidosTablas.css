@@ -32,7 +32,7 @@ li ,ul {
 div.listadoSearch-categorias{  
  
     display:flex;
-    width: 80%;
+    width: 90%;
     justify-content: center;
     flex-direction:row;
     flex-wrap:wrap;

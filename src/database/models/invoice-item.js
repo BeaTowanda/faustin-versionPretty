@@ -18,6 +18,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.BIGINT(10).UNSIGNED,
             allowNull: true
         },
+        id_prod_color_prod: {
+            type: dataTypes.BIGINT(10).UNSIGNED,
+            allowNull: true
+        },
         quantity: {
             type: dataTypes.INTEGER(10),
             allowNull: true
@@ -57,6 +61,10 @@ module.exports = (sequelize, dataTypes) => {
         InvoiceItem.belongsTo(models.ProductColor, {    
             as: "itemColor",
             foreignKey: "id_color",
+        })
+        InvoiceItem.belongsTo(models.ProductColorProduct, {    
+            as: "idPCP",
+            foreignKey: "id_prod_color_prod",
         })
     }
     return InvoiceItem

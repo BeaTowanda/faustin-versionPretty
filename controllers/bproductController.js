@@ -813,11 +813,10 @@ const controller = {
       res.render("loginDB",{user:userHead});
     } else {
       const errors = validationResult(req);
-      console.log(errors +"errores en comprar")
-      console.log(errors.errors.colores + "error en color")
+
       // si hay errores
       if (errors.errors.length > 0) {
-        console.log("entró en errors")
+
         console.log(errors.mapped())
         productoD = db.Product.findOne({
           where: {
@@ -896,7 +895,16 @@ const controller = {
               aux2 = aux1;
             }
             // termina los cálculos precio unitario
+            // busca id product color product
+            let clave = await db.ProductColorProduct.findOne({
+              where:{
+                id_product : req.params.id,
+                id_color : req.body.colores
+              }
+            })
+            //return res.json(clave)
             let compra = await db.InvoiceItem.create({
+              id_prod_color_prod :clave.id,
               id_color:req.body.colores,
               id_product: req.params.id,
               quantity: req.body.cantidadProducto,
@@ -1057,25 +1065,31 @@ const controller = {
   //*********************** */
   creaFactura: async (req, res) => {
     let total1 = parseInt(req.params.suma);
-
     try {
       // actualiza el nro de factura en JSON
       // busco el nro de factura
       let facturacion = productModel.find(0);
+      let remito = facturacion.remito;
+      
       let numeroFact = facturacion.numero + 1;
       let facturaData = {
         id: 0,
         numero: numeroFact,
+        remito:remito,
+        senialRemito:999,
         standard: facturacion.standard,
         premiun: facturacion.premiun,
       };
       productModel.update(facturaData);
       /*arma datos Factura*/
+      let fecha= new Date();
       let factura = {
         number: numeroFact,
+        invoice_date:fecha,
         id_user: req.session.usuarioLogueado.id,
         delivery_dir: req.body.direccion,
         delivery_cost: req.body.costoDistribucion,
+        horary:req.body.horario,
         total: total1,
       };
       /*guardo los datos de impuestos para acompañar la factura en endCarrito */
@@ -1089,9 +1103,11 @@ const controller = {
       /*arma datos impositivos */
 
       // actualiza el numero en invoiceItem
+      let fecha1= new Date();
       let item = await db.InvoiceItem.update(
         {
           made: numeroFact,
+
         },
         {
           where: {
@@ -1116,13 +1132,26 @@ const controller = {
   /********************** */  
   endCompra: async (req, res) => {
     let userHead= invitado(req.session.usuarioLogueado)
+    let fecha= new Date();
     let factura = await db.Invoice.create({
       number: req.body.factura,
+      invoice_date:fecha,
+      remitNumber:1111111111,
       id_user: req.body.idUsuario,
       delivery_dir: req.body.direccion,
+      horary:req.body.horario,
       delivery_cost: req.body.costoEnvio,
       total: req.body.total,
     });
+    console.log(factura.id + "es el id de la factura" )
+    let upInvoiceItema = await db.InvoiceItem.update(
+      {
+      id_invoice : factura.id,
+      },{
+      where:{
+        made : req.body.factura
+      }
+    })
     let mensaje = "SE CREO FACTURA EXISTOSAMENTE";
     res.render("mensajesDB", { mensaje: mensaje,user:userHead });
   },
@@ -1136,6 +1165,7 @@ const controller = {
     const errors = validationResult(req);
 
     if (errors.errors.length > 0) {
+      
       res.render("formularioTaxesDB", { errorsProd: errors, user:userHead });
     } else {
       db.UserTax.create({
@@ -1145,6 +1175,7 @@ const controller = {
         cuit: req.body.cuit,
         ingresosBrutos: req.body.brutos,
         retGanancias: req.body.ganancias,
+        dir_afip:req.body.direccion
       }).then(function () {
         if (req.session.usuarioLogueado.cproduct !== 0) {
           db.Product.findOne({
@@ -1227,6 +1258,7 @@ const controller = {
           saleP: saleP,
           user:userHead
         });
+
       }
     });
   },

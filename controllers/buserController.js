@@ -22,7 +22,6 @@ function invitado(ver){
     administrador : 0
   }
   if (ver !== undefined){
-    console.log("está en function invitado") 
     userHead.usuario = ver.usuario;
     userHead.administrador = ver.categoria ;
     return userHead

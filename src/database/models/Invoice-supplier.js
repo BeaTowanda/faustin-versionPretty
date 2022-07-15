@@ -11,7 +11,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: true
         }, 
         number: {
-            type: dataTypes.STRING(30),
+            type: dataTypes.INTEGER(10),
             allowNull: true
         },
         total: {

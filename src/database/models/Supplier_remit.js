@@ -26,12 +26,9 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.BIGINT(10).UNSIGNED,
             allowNull: true
         }, 
-        id_invoice_supplier: {
-            type: dataTypes.BIGINT(10).UNSIGNED,
-            allowNull: true
-        }, 
-        number_rto_supplier: {
-            type: dataTypes.STRING(50),
+        
+        number: {
+            type: dataTypes.INTEGER(10),
             allowNull: true
         },    
         quantity: {
@@ -47,6 +44,10 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: true
         },
         zona: {
+            type: dataTypes.INTEGER(10),
+            allowNull: true
+        },
+        comentaries: {
             type: dataTypes.INTEGER(10),
             allowNull: true
         },

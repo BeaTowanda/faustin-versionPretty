@@ -30,8 +30,11 @@ module.exports = (sequelize, dataTypes) => {
         retGanancias: {
             type: dataTypes.STRING(100),
             allowNull: true
+        },
+        dir_afip: {
+            type: dataTypes.STRING(100),
+            allowNull: true
         }
-        
     };         
     
     let config = {
