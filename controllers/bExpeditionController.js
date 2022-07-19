@@ -232,8 +232,9 @@ function invitado(ver){
           res.render ("listInvoiceItem",{user:userHead ,mensaje: mensaje, array:items, depositos:listDeposits })
         }else{
           console.log("sale a renderizar mensajesEXP en el else")
-          mensaje= "STOCK INSUFICIENTE" 
-           res.render("mensajesEXP",{user:userHead , mensaje:mensaje, productoNo:productoNo,productoNo2: productoNoColor })
+          mensaje= "STOCK INSUFICIENTE" ;
+          let productoNo2 = "Color : " + productoNoColor;
+           res.render("mensajesEXP",{user:userHead , mensaje:mensaje, productoNo:productoNo,productoNo2: productoNo2 })
         }
       }   
   },
@@ -339,7 +340,7 @@ faltaRtoTotal: async (req,res)=> {
     },
       include:["usRInvoice"]  
   });
-  return res.json(itemRemit)
+ // return res.json(itemRemit)
   if(itemRemit.length = 0){
     let mensaje = "no hay remitos a generar ";
     res.render("mensajesDB",{user:userHead, mensaje:mensaje});
@@ -401,38 +402,181 @@ creaRtoTotal : async (req,res) =>{
     premiun: facturacion.premiun
   }
   productModel.update(facturaData);
-  let mensaje = "REMITO :" + numberRto + "ha sido creado"
+  let mensaje = "REMITO :" + numberRto + "ha sido creado";
   res.render("mensajesDB",{user:userHead, mensaje:mensaje})
+
 },
+
 ingresaRtoProveedor: (req,res) =>{
   let userHead= invitado(req.session.usuario);
 
-  let productoColor = db.ProductColorProduct.findAll();
+  let productoColor = db.ProductColorProduct.findAll({
+    include :["pcpProduct","pcpColor"],
+    order:[["id_product","DESC"]]
+  });
+  //return res.json(productoColor)
   let proveedor = db.Supplier.findAll();
   let deposito = db.Deposit.findAll();
   let fecha = new Date();
+  let fechaV= fecha.toLocaleDateString();
   Promise.all([productoColor, proveedor, deposito]).then(function ([
     productColorProducts,
     suppliers,
     deposits,   
   ]) {
+    //return res.json(productColorProducts)
     return res.render("altaRemitoSupp", {
       productoColor: productColorProducts,
       proveedor: suppliers,
       deposito: deposits,
-      dia: fecha.toLocaleDateString(),     
-      user:userHead
+      fechaV:fechaV,     
+      user:userHead,
     });
-  });
+  }); 
+},
+altaRtoProveedor: async (req,res) =>{
+  let userHead= invitado(req.session.usuario);
+  const errors = validationResult(req);
+//return res.json(req.body)
+let fecha = new Date();
+  let cantidades= req.body.cantBody.filter(element =>element > 0 );
+
+  //return res.json(cantidades)
+    if (errors.errors.length > 0 || ! (cantidades) || ! (req.body.prodColorBody)){
+      //return res.json(req.prodColorBody)
+      console.log("en en errores :" + errors.errors.length)
+      console.log(cantidades)
+      //return res.json(req.body.prodColorBody)
+      let productoColor = await db.ProductColorProduct.findAll({
+        include :["pcpProduct","pcpColor"],
+        order:[["id_product","DESC"]]
+      });
+      let proveedor = await db.Supplier.findAll();
+      let deposito = await db.Deposit.findAll();
+      
+      let fechaV= fecha.toLocaleDateString(); 
+      //return res.json(errors.mapped())
+      res.render("altaRemitoSupp", {
+        errorsProd: errors.mapped(),
+        productoColor: productoColor,
+        proveedor: proveedor,
+        deposito: deposito,
+        fechaV:fechaV,     
+        user:userHead
+      } )
+    } // del validation hay error
+    else{
+      console.log("el depósito es = " + req.body.deposito)
+      // doy alta REMITO TOTAL SUPP
+      let proveedorTabla= {
+        id_supplier : req.body.proveedor,
+        id_deposit: req.body.deposito,
+        number: req.body.remito,
+        date_recepction: req.body.fechaRec,
+        dniReception: req.body.dni,
+        comentaries: req.body.comentario + req.body.comentario2
+      }
+      //return res.json(proveedorTabla)
+      let supp = await db.SupplierRemit.create(proveedorTabla);
+      // ahora actualizo stock y creo item Remito
+      let item ={
+        id_prod_color_prod : 0,
+        id_product :0,
+        id_color:0,
+       
+        id_supplier:0,
+        number:0,
+        quantity:0,
+        
+      }
+      let itemSup="";
+      let stock ="";
+      let actualizaStock="";
+      let stockDeposito =0;
+      let actualizaDP="";  
+      let itemProdDep ={
+        quantity: 0,
+        date_new : "",
+        id_deposit :0,
+        id_prod_color_prod : 0
+      }
+      ///
+     
+      for (i=0 ; i< cantidades.length ; i++){
+        console.log("está en el for cantidades con i = "+i)
+        console.log(req.body.prodColorBody[i]+ "  es clave prodColor")
+        stock = await db.ProductColorProduct.findOne({
+          where:{
+            id:req.body.prodColorBody[i]
+          }
+        })
+        console.log(req.body.prodColorBody[i])
+        //return res.json(req.body.deposito)
+        if (stock){
+          resultado = parseInt(stock.quantity) + parseInt(cantidades[i]);       
+       // if (req.body.prodColorBody[i] !== undefined){
+           item ={
+            id_prod_color_prod : req.body.prodColorBody[i],
+            id_product :stock.id_product,
+            id_color:stock.id_color,
+            id_supplier:req.body.proveedor,
+            number:req.body.remito,
+            quantity:cantidades[i],
+            id_deposit: req.body.deposito
+          };
+          itemSup = await db.SupplierRemitItem.create(item);
+          actualizaStock = await db.ProductColorProduct.update({
+            quantity : resultado,
+            dispach: req.body.remito
+          }, {
+            where:{
+              id:req.body.prodColorBody[i]
+            }
+          })
+          // return res.json(stock)
+          // ojo acá porque el i no es lo mismo ver en req.body   
+            let productoDeposito = await db.DepositProduct.findOne({
+              where:{
+                id_prod_color_prod : req.body.prodColorBody[i]
+              }
+            });  
+            if(productoDeposito){
+              stockPDeposito =  parseInt( productoDeposito.quantity) + parseInt(cantidades[i]);
+                actualizaDP = await db.DepositProduct.update({
+                quantity : stockDeposito, 
+                date_new : fecha
+                },{
+                where:{
+                  id : req.body.deposito
+                }
+               })
+            }
+            else { // de if productDeposito
+                itemProdDep ={
+                quantity: cantidades[i],
+                date_new : fecha,
+                id_deposit : req.body.deposito,
+                id_prod_color_prod : req.body.prodColorBody[i]
+              }
+               actualizaDP= await db.DepositProduct.create(itemProdDep);
+               
+            } // de else de depositProduct  
+          } // del if stock
+       
+          else{
+            let mensaje = "error en sistemas 223";
+            let productoNo = req.body.proBody[i];
+            let productoNo2= req.body.colorBody[i];
+            res.render("mensajesEXP", {user:userHead ,mensaje:mensaje, productoNo:productoNo, productoNo2: productoNo2 })
+          } // final del else ir req.body.
+       
+      } // del for
+      
+    } // del else de errores 
+            let mensaje = "Se ha creado remito de Proveedor ";
+            let productoNo = "se actualizaron stocks"
+            let productoNo2= "";
+            res.render("mensajesEXP", {user:userHead ,mensaje:mensaje, productoNo:productoNo, productoNo2: productoNo2 })
 }
-  /*
-  listProdDeposit: async (req,res) =>{
-    depositStock = await db.DepositProduct.findAll({
-      where:{
-        id_prod_color_prod : pcp.id
-      },
-      include:["depositD"]
-    }) */
-  }
-  
+}
   module.exports = controller;

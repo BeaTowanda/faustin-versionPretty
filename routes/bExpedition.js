@@ -22,5 +22,5 @@ router.get("/listRtosGeneral",bExpeditionController.faltaRtoTotal)
 router.post("/creaRtoTOTAL/:id",bExpeditionController.creaRtoTotal)
 // REMITOS PROVEEDOR PARA DAR STOCK
 router.get("/ingresarRemitoProveedor",bExpeditionController.ingresaRtoProveedor)
-router.post("/altaRemitoProveedor",bExpeditionController.altaRemitoProveedor)
+router.put("/altaRemitoProveedor",validatorExpedition.remitoProveedor,bExpeditionController.altaRtoProveedor)
 module.exports = router;

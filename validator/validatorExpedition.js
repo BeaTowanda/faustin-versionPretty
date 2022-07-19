@@ -72,85 +72,25 @@ const validatorEXP = {
                  })        
              } ),  
     ],
-    login:[
-        check("usuario")
+    remitoProveedor:[
+        check("proveedor")
             .notEmpty()
-            .withMessage("Debe ingresar Usuario Registrado")
-            .bail()
-            .custom(function(value){              
-                    return db.User.findOne({
-                        where:{
-                            username :value
-                        } 
-                     }) 
-                     .then (user =>{
-                         if(!user){
-                             return Promise.reject("Usuario INEXISTENTE")
-                         }
-                     })        
-                 } ),
-        check("contraseña")
-            .notEmpty()
-            .withMessage("Debe Ingresar Contraseña") 
-    ],
-    register:[
-        check('usuario')
-        .notEmpty().withMessage ("debe Ingresar USUARIO ")
-        .bail()
-        .isLength({min:8}). withMessage('Nombre De usuario MINIMO 8 caractres')
-        .bail()
-        .custom(function(value){              
-            return db.User.findOne({
-                where:{
-                    userName :value
-                } 
-             }) 
-             .then (user =>{
-                 if(user){
-                     return Promise.reject("Usuario INEXISTENTE ") 
-                 }
-             })        
-         } )
-        ,
-        check('primerNombre')
-        .notEmpty().withMessage ("Debe Ingresar NOMBRE ")
-        .bail()
-        .isLength({min:2}).withMessage('Debe ingresar NOMBRE válido'),        
-        check('apellido')
-        .notEmpty().withMessage ("Debe Ingresar APELLIDO")
-        .bail()
-        .isLength({min:2}).withMessage('Debe ingresar un APELLIDO válido'),
-        check('contraseña')
-        .notEmpty().withMessage ("Ingrese una CONTRASEÑA")
-        .bail()
-        .isLength({min:5}).withMessage('Contraseña debe ser mínimo 5 caracteres'),        
-        check('mail') 
-        .notEmpty().withMessage("Email vacio")
-        .bail()     
-        .isEmail().withMessage('Mail NO Válido')
-        .bail()
-        .custom(function(value){              
-            return db.User.findOne({
-                where:{
-                    email :value
-                } 
-             }) 
-             .then (user =>{
-                 if(user){
-                     return Promise.reject("EMAIL ya está regitrado -Verifique")
-                 }
-             })        
-         } ),
-       
-        check('fechaNacimiento')
-        .notEmpty().withMessage ("Fecha de Nacimiento DEBE SER COMPLETADA ")
-        .bail()
-        .isDate().withMessage('Fecha Incorrecta ')
-        // falta que sea mayor de edad buscar la función que dió AXEL
-        .bail(),
+            .withMessage("Debe seleccionar UN PROVEEDOR de la BASE"),       
         
-        check('terminos')
-        .notEmpty().withMessage('Debe aceptar Términos y condiciones ')
+        check('deposito')
+        .notEmpty().withMessage ("debe Elegir DEPOSITO RECEPCTIVO ")
+        ,
+        check('prodColorBody')
+        .notEmpty().withMessage ("Debe seleccionar al menos 1 PRODUCTO-COLOR ")
+        ,   
+        check('remito')
+        .notEmpty().withMessage ("Debe Ingresar REMITO PROVEEDOR ")
+        ,
+        check('fechaRec')
+        .notEmpty().withMessage('Debe ingresar Fecha ')
+        ,
+        check('dni')
+        .notEmpty().withMessage('Debe ingresar DNI recepctor ')
 
     ],
     updateUser: [
